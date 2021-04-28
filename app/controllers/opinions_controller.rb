@@ -15,10 +15,6 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new
   end
 
-  # GET /opinions/1/edit
-  def edit
-  end
-
   # POST /opinions
   def create
     @opinion = Opinion.new(opinion_params)
@@ -28,21 +24,6 @@ class OpinionsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /opinions/1
-  def update
-    if @opinion.update(opinion_params)
-      redirect_to @opinion, notice: "Opinion was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /opinions/1
-  def destroy
-    @opinion.destroy
-    redirect_to opinions_url, notice: "Opinion was successfully destroyed."
   end
 
   private
