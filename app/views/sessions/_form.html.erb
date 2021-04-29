@@ -1,0 +1,26 @@
+<%= form_with(url: login_path, scope: :session, local: true) do |form| %>
+<%
+=begin %>
+  <% if login.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(login.errors.count, "error") %> prohibited this opinion from being saved:</h2>
+
+      <ul>
+        <% login.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%
+=end %>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Sign in' %>
+  </div>
+<% end %>
