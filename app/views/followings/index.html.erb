@@ -13,7 +13,6 @@
     <% @followings.each do |following| %>
       <tr>
         <td><%= link_to 'Show', following %></td>
-        <td><%= link_to 'Edit', edit_following_path(following) %></td>
         <td><%= link_to 'Destroy', following, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -34,6 +34,6 @@ class OpinionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def opinion_params
-      params.fetch(:opinion, {})
+      params.require(:opinion).permit(:author_id, :text)
     end
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show destroy ]
 
   # GET /users
   def index
@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # DELETE /users/1
+  def destroy
+    @user.destroy
+    redirect_to users_url, notice: 'User was successfully deleted.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -34,6 +40,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:username, :fullname, :photo, :cover_image)
     end
 end
