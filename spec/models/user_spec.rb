@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
     let(:followed) { User.find_by_username('Jane_Watson') }
     let(:new_following) { follower.followings.build(followed_id: followed.id) }
 
-    it { should have_many(:inverse_followings) }
+    it { should have_many(:inverse_followings).class_name('Following') }
     it { should have_many(:followers) }
 
     it 'can see the name of a follower' do
@@ -81,6 +81,8 @@ RSpec.describe User, type: :model do
     describe '#username' do
       it { should validate_presence_of(:username) }
       it { should_not allow_value('Peter Parker').for(:username) }
+      it { should allow_value('Peter_Parker').for(:username) }
+      it { should allow_value('Peter-Parker').for(:username) }
       it { should validate_length_of(:username) }
       it { should validate_presence_of(:fullname) }
       it { should validate_length_of(:fullname) }
