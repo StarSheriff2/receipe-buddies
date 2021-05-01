@@ -1,5 +1,5 @@
 class OpinionsController < ApplicationController
-  before_action :set_opinion, only: %i[ show edit update destroy ]
+  before_action :set_opinion, only: %i[show edit update destroy]
 
   # GET /opinions
   def index
@@ -7,8 +7,7 @@ class OpinionsController < ApplicationController
   end
 
   # GET /opinions/1
-  def show
-  end
+  def show; end
 
   # GET /opinions/new
   def new
@@ -20,20 +19,21 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new(opinion_params)
 
     if @opinion.save
-      redirect_to @opinion, notice: "Opinion was successfully created."
+      redirect_to @opinion, notice: 'Opinion was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_opinion
-      @opinion = Opinion.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def opinion_params
-      params.require(:opinion).permit(:author_id, :text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_opinion
+    @opinion = Opinion.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def opinion_params
+    params.require(:opinion).permit(:author_id, :text)
+  end
 end

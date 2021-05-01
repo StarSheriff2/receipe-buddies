@@ -10,7 +10,7 @@ RSpec.describe Opinion, type: :model do
   # Model Tests
   context 'with correct params' do
     before do
-      @opinion = Opinion.create(text: "I highly recommend you try this receipe at home", author_id: user1.id)
+      @opinion = Opinion.create(text: 'I highly recommend you try this receipe at home', author_id: user1.id)
     end
 
     it 'creates an opinion' do
@@ -25,7 +25,7 @@ RSpec.describe Opinion, type: :model do
 
   context 'with incorrect params' do
     before do
-      @opinion = Opinion.new(text: "I highly recommend you try this receipe at home")
+      @opinion = Opinion.new(text: 'I highly recommend you try this receipe at home')
     end
 
     it 'cannot create an opinion' do
@@ -33,8 +33,7 @@ RSpec.describe Opinion, type: :model do
     end
 
     it 'cannot read an opinion' do
-      text = "I highly recommend you try this receipe at home"
-      opinion_text = @opinion.text
+      text = 'I highly recommend you try this receipe at home'
       expect(@opinion_text).not_to eq(text)
     end
   end
@@ -50,7 +49,10 @@ RSpec.describe Opinion, type: :model do
   context 'it is valid with valid attributes' do
     describe '#text' do
       it { should validate_presence_of(:text) }
-      it { should validate_length_of(:text).is_at_most(1000).with_message('1000 characters in opinion is the maximum allowed.') }
+      it do
+        should validate_length_of(:text).is_at_most(1000)
+          .with_message('1000 characters in opinion is the maximum allowed.')
+      end
     end
   end
 end

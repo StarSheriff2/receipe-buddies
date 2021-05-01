@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  VALID_USERNAME_REGEX = /\A[\w+\-\_]+\z/i
+  VALID_USERNAME_REGEX = /\A[\w+\-_]+\z/i
   validates :username, presence: true, format: { with: VALID_USERNAME_REGEX }, length: { maximum: 20 }
   validates :fullname, presence: true, length: { maximum: 40 }
 

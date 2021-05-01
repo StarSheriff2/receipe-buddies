@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ destroy ]
+  before_action :set_user, only: %i[destroy]
 
   # GET /users
   def index
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      redirect_to @user, notice: "User was successfully created."
+      redirect_to @user, notice: 'User was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,13 +35,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      current_user?(@user)
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:username, :fullname, :photo, :cover_image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    current_user?(@user)
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:username, :fullname, :photo, :cover_image)
+  end
 end
