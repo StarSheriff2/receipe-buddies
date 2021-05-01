@@ -1,6 +1,6 @@
 class Opinion < ApplicationRecord
   validates :text, presence: true, length: { maximum: 1000,
-    too_long: '1000 characters in post is the maximum allowed.' }
+    too_long: '1000 characters in opinion is the maximum allowed.' }
 
   belongs_to :author, class_name: 'User'
 

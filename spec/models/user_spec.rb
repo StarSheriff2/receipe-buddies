@@ -78,10 +78,15 @@ RSpec.describe User, type: :model do
   end
 
   context 'it is valid with valid attributes' do
-    describe '#name' do
+    describe '#username' do
       it { should validate_presence_of(:username) }
       it { should_not allow_value('Peter Parker').for(:username) }
       it { should validate_length_of(:username) }
+      it { should validate_presence_of(:fullname) }
+      it { should validate_length_of(:fullname) }
+    end
+
+    describe '#fullname' do
       it { should validate_presence_of(:fullname) }
       it { should validate_length_of(:fullname) }
     end
