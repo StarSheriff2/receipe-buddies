@@ -1,0 +1,16 @@
+<div class="global-w container p-3 my-3 border">
+  <%= form_with(url: login_path, scope: :session, local: true) do |form| %>
+
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :username %>
+      <%= form.text_field :username, { class:"form-control", placeholder:"Enter your username" } %>
+    </div>
+    <%= form.submit 'Sign in', class:"btn btn-outline-primary btn-lg btn-block" %>
+  <% end %>
+</div>
