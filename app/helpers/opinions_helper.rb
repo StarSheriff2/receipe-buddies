@@ -1,21 +1,20 @@
 module OpinionsHelper
   def calculate_time_ago(time_stamp)
-    diff_in_min = (Time.now - time_stamp)/60
+    diff_in_min = (Time.now - time_stamp) / 60
 
     case diff_in_min
     when 0...1
-      "a minute ago"
+      'a min ago'
     when 1...5
-      "few minutes ago"
+      'few min ago'
     when 5...60
-      "#{diff_in_min} minutes ago"
+      "#{diff_in_min} min ago"
     when 60...120
-      "1 hour ago"
+      '1 hr ago'
     when 120...1440
-      "#{diff.div(60).to_i} hours ago"
+      "#{(diff_in_min / 60).to_i} hr ago"
     else
-      "#{ time_stamp.to_date.strftime("%d %b") }"
+      time_stamp.to_date.strftime('%d %b').to_s
     end
-
   end
 end
