@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[destroy]
+  before_action :set_user, only: %i[edit update destroy]
 
   # GET /users
   def index
@@ -28,6 +28,23 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/edit
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  # PATCH /users/1
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+
+    if @user.save
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   # DELETE /users/1
   def destroy
     @user.destroy
@@ -43,6 +60,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:username, :fullname, :photo, :cover_image)
+    params.require(:user).permit(:username, :fullname, :photo, :cover_image, :avatar)
   end
 end

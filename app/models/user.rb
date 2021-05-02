@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :inverse_followings, class_name: 'Following', foreign_key: :followed_id
   has_many :followers, through: :inverse_followings
+
+  has_one_attached :avatar
 end
