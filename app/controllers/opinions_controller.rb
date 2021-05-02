@@ -4,6 +4,7 @@ class OpinionsController < ApplicationController
   # GET /opinions
   def index
     @opinions = Opinion.all
+    @opinion = Opinion.new
   end
 
   # GET /opinions/1
