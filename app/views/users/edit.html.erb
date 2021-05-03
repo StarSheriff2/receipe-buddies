@@ -1,4 +1,5 @@
-<%= form_for @user do |f| %>
-    <%= f.file_field :photo %>
-    <%= f.submit "Update User" %>
+<%= form_for @user do |form| %>
+    <%= form.label :photo %>
+    <%= form.file_field :avatar %>
+    <%= form.submit "Update User" %>
 <% end %>
