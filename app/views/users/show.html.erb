@@ -1,6 +1,4 @@
 <p id="notice"><%= notice %></p>
-<% if @user.avatar.attached? %>
-    <%= cl_image_tag @user.avatar.key, :width=>100, :height=>100, :crop=>:thumb, :gravity => :face %>
-<% end %>
+    <%= profile_picture(@user, [100, 100]) %>
 <%= @user.fullname %>
 <%= link_to 'Back', users_path %>

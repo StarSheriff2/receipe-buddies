@@ -1,0 +1,25 @@
+<nav class="left-side-menu float-left m-md-0 p-4">
+  <div class="left-menu-profile d-flex align-items-center pb-4">
+    <%= profile_picture(current_user, [80, 80]) %>
+    <h2 class="ml-4"><%= current_user.fullname.upcase! %></h2>
+  </div>
+  <div class="left-menu-stats d-flex py-4 justify-content-around">
+    <div class="d-flex flex-column align-items-center">
+      <span class="count">184</span>
+      <span class="stat-label">Following</span></div>
+    <div class="d-flex flex-column align-items-center">
+      <span class="count">823</span>
+      <span class="stat-label">Followers</span>
+    </div>
+  </div>
+  <ul class="left-menu-links">
+    <li class="left-menu-link-home d-flex align-items-center py-4">
+      <i class="fas fa-home mr-3"></i>
+      <h2><%= link_to 'HOME', opinions_path %></h2>
+    </li>
+    <li class="left-menu-link-profile d-flex align-items-center py-4">
+      <i class="fas fa-user mr-3"></i>
+      <h2><%= link_to 'PROFILE', user_path(current_user) %></h2>
+    </li>
+  </ul>
+</nav>
