@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
+    @user.photo = @user.avatar.key
 
     if @user.save
       log_in @user
@@ -47,6 +48,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_url, notice: 'User was successfully deleted.'
   end
