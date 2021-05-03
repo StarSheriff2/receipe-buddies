@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    @user.photo = @user.avatar.key if @user.avatar.attached?
 
     if @user.save
       redirect_to @user, notice: 'User was successfully updated.'
