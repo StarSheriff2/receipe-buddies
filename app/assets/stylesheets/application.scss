@@ -134,10 +134,16 @@ ul {
 .header {
   background-color: $primary-color;
   color: $primary-color-icons;
+  left: 250px;
+  right: 0;
 }
 
 .color-correction {
   filter: brightness(0) invert(100%);
+}
+
+.header-navbar-links {
+  width: 250px;
 }
 
 .header-navbar-links .fas {
