@@ -1,5 +1,11 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
 <%= render 'layouts/left_side_menu' %>
+
+<%= render 'layouts/header_nav' %>
+
 <div class="new-opinion">
   <%= render 'form', opinion: @opinion %>
 </div>

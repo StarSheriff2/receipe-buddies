@@ -1,0 +1,18 @@
+<header class="header">
+  <h2 class="hidden">Header</h2>
+  <nav class="header-navbar py-3 px-4 d-flex align-items-center justify-content-between">
+    <%= link_to image_tag('logo.png', alt:'logo', width: 100, class:'color-correction'),
+    root_path, class: "d-inline" %>
+    <ul class="header-navbar-links d-flex align-items-center my-2">
+      <li><%= link_to new_opinion_path do %>
+        <i class="fas fa-pen"></i>
+      <% end %></li>
+      <li class="ml-5"><%= link_to root_path do %>
+        <i class="fas fa-search"></i>
+      <% end %></li>
+      <li class="ml-5"><%= link_to edit_user_path(current_user) do %>
+        <i class="fas fa-cog"></i>
+      <% end %></li>
+    </ul>
+  </nav>
+</header>

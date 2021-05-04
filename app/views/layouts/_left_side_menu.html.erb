@@ -1,6 +1,7 @@
 <nav class="left-side-menu float-left m-md-0 p-4">
+  <h2 class="hidden">Left Menu</h2>
   <div class="left-menu-profile d-flex align-items-center pb-4">
-    <%= profile_picture(current_user, [80, 80]) %>
+    <%= profile_picture(current_user, [50, 50]) %>
     <h2 class="ml-4"><%= current_user.fullname.upcase! %></h2>
   </div>
   <div class="left-menu-stats d-flex py-4 justify-content-around">
@@ -14,12 +15,14 @@
   </div>
   <ul class="left-menu-links">
     <li class="left-menu-link-home d-flex align-items-center py-4">
+      <%= link_to '', opinions_path, class:'stretched-link' %>
       <i class="fas fa-home mr-3"></i>
-      <h2><%= link_to 'HOME', opinions_path %></h2>
+      <h2>HOME</h2>
     </li>
     <li class="left-menu-link-profile d-flex align-items-center py-4">
+      <%= link_to '', user_path(current_user), class:'stretched-link' %>
       <i class="fas fa-user mr-3"></i>
-      <h2><%= link_to 'PROFILE', user_path(current_user) %></h2>
+      <h2>PROFILE</h2>
     </li>
   </ul>
 </nav>
