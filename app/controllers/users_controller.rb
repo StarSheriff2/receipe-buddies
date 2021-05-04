@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :logged_in_user, only: [:new, :create, :index, :show]
   before_action :set_user, only: %i[edit update destroy]
 
   # GET /users
