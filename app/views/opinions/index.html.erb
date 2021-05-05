@@ -3,11 +3,13 @@
     <p id="notice"><%= notice %></p>
   <% end %>
 
+  <%= render 'top_nav' %>
+
   <div class="new-opinion">
     <%= render 'form', opinion: @opinion %>
   </div>
 
-  <div class="opinions-list-wrapper">
+  <main class="opinions-list-wrapper">
     <% @opinions.includes(:author).each do |opinion| %>
       <div class="opinion-info">
         <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
@@ -15,7 +17,7 @@
       </div>
       <p><%= opinion.text %></p>
     <% end %>
-  </div>
+  </main>
 </div>
 
 
