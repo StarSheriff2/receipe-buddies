@@ -1,23 +1,21 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
-
-<%= render 'layouts/left_side_menu' %>
-
-<%= render 'layouts/header_nav' %>
-
-<div class="new-opinion">
-  <%= render 'form', opinion: @opinion %>
-</div>
-
-<div class="opinions-list-wrapper">
-  <% @opinions.includes(:author).each do |opinion| %>
-    <div class="opinion-info">
-      <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
-      <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
-    </div>
-    <p><%= opinion.text %></p>
+<div class="opinions-index-container position-absolute border border-danger">
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
   <% end %>
+
+  <div class="new-opinion">
+    <%= render 'form', opinion: @opinion %>
+  </div>
+
+  <div class="opinions-list-wrapper">
+    <% @opinions.includes(:author).each do |opinion| %>
+      <div class="opinion-info">
+        <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
+        <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
+      </div>
+      <p><%= opinion.text %></p>
+    <% end %>
+  </div>
 </div>
 
 

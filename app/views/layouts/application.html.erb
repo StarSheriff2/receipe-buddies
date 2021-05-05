@@ -11,7 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="page-container position-relative">
+      <% if logged_in? && root_path || logged_in? && user_path %>
+        <%= render 'layouts/left_side_menu' %>
+        <%= render 'layouts/header_nav' %>
+        <%= render 'layouts/right_side_nav' %>
+      <% end %>
+
+      <%= yield %>
+    </div>
 
     <script src="https://kit.fontawesome.com/2bdc450678.js" crossorigin="anonymous"></script>
   </body>

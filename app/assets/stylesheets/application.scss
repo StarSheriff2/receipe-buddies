@@ -1,5 +1,10 @@
+/*
+  *= require_self
+*/
+
 @import "bootstrap/scss/bootstrap";
-@import "./sessions.scss";
+@import "sessions";
+@import "opinions";
 
 /*
   =======================
@@ -73,8 +78,8 @@ h2 {
   margin: 0;
 }
 
-%h3 {
-  @include font-styles($font-size: 1rem, $letter-spacing: -0.3px);
+h3 {
+  @include font-styles($font-size: 0.8rem, $letter-spacing: -0.3px);
   margin: 0;
 }
 
@@ -94,6 +99,10 @@ ul {
   padding: 0;
 }
 
+p {
+  margin: 0;
+}
+
 /*
   =======================
   LEFT-SIDE MENU
@@ -105,6 +114,10 @@ ul {
   width: 250px;
   background-color: $secondary-color;
   color: $secondary-color-font;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
 }
 
 .left-menu-profile h2 {
@@ -135,7 +148,9 @@ ul {
   background-color: $primary-color;
   color: $primary-color-icons;
   left: 250px;
+  top: 0;
   right: 0;
+  height: 100px;
 }
 
 .color-correction {
@@ -148,4 +163,30 @@ ul {
 
 .header-navbar-links .fas {
   font-size: 1.3rem;
+}
+
+/*
+  =======================
+  RIGHT-SIDE-NAV
+  =======================
+*/
+
+.right-side-nav {
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+}
+
+// HOMEPAGE-RIGHT-SIDE-NAV
+
+.who-to-follow-module-title {
+  height: 100px;
+}
+
+.top-image-container {
+  border: 2px solid white;
+  margin-right: 25px;
+  width: 75px;
+  height: 75px;
 }

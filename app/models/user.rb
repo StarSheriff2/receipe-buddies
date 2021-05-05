@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :followers, through: :inverse_followings
 
   has_one_attached :avatar, dependent: :destroy
+
+  scope :ordered_by_most_recent, ->(user) { where.not('id = ?', user).order(created_at: :desc).first(3) }
 end

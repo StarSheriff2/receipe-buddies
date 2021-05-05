@@ -1,7 +1,7 @@
 module UsersHelper
-  def profile_picture(user, dimensions = [100, 100], crop = :thumb, border_type = nil)
+  def profile_picture(user, dimensions = [100, 100], gravity: :face, crop: :thumb, radius: nil, alt: nil, class_name: nil)
     if user.avatar.attached?
-      cl_image_tag user.avatar.key, :width=>dimensions[0], :height=>dimensions[1], :crop=>crop, :gravity => :face
+      cl_image_tag(user.avatar.key, :alt=>alt, :class=>class_name, :width=>dimensions[0], :height=>dimensions[1], :crop=>crop, :gravity => gravity, :radius=>radius, :fetch_format=>:auto)
     end
   end
 end
