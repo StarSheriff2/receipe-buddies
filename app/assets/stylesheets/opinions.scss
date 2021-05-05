@@ -11,6 +11,17 @@
   height: 100px;
 }
 
-.new-opinion {
+.create-new-opinion,
+.opinions-list-wrapper {
   background-color: $bg-white;
+}
+
+.share-opinion-bt {
+  background-color: $primary-color;
+  color: $bg-white;
+}
+
+.new-opinions-count {
+  color: $primary-color;
+  line-height: 0.5rem;
 }

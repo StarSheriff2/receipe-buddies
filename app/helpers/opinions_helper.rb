@@ -8,7 +8,7 @@ module OpinionsHelper
     when 1...5
       'few min ago'
     when 5...60
-      "#{diff_in_min} min ago"
+      "#{diff_in_min.to_i} min ago"
     when 60...120
       '1 hr ago'
     when 120...1440

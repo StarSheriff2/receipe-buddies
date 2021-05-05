@@ -6,20 +6,27 @@
   <%= render 'top_nav' %>
 
   <div class="opinions-dashboard-container p-4">
-    <div class="new-opinion p-4 mb-4">
+    <div class="create-new-opinion p-4 mb-4">
       <h2 class='pb-2'>SHARE A RECIPE</h2>
       <%= render 'form', opinion: @opinion %>
     </div>
 
-    <main class="opinions-list-wrapper">
-      <% @opinions.includes(:author).each do |opinion| %>
-        <div class="opinion-info">
-          <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
-          <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
-        </div>
-        <p><%= opinion.text 'SHARE' %></p>
-      <% end %>
-    </main>
+    <% if @timeline_opinions.any? %>
+      <main class="opinions-list-wrapper p-4">
+        <p class="new-opinions-count pr-4 pb-4"><%= @timeline_opinions.count %> NEW RECIPES SHARED</p>
+        <hr>
+        <% @timeline_opinions.each do |opinion| %>
+          <div class="opinion-card pt-4 overflow-hidden">
+            <%= profile_picture(opinion.author, [50, 50], crop: :fill, alt: "author-thumbnail-picture", class_name:"opinion-author-thumb-pic mr-3 float-left")%>
+            <div class="opinion-info d-flex justify-content-between flex-grow-1">
+              <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
+              <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
+            </div>
+            <p><%= opinion.text %></p>
+          </div>
+        <% end %>
+      </main>
+    <% end %>
   </div>
 </div>
 

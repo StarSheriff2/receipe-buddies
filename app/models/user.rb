@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :opinions, foreign_key: :author_id, dependent: :destroy
 
   has_many :followings, foreign_key: :follower_id
+  has_many :followed_users, through: :followings, source: :followed
 
   has_many :inverse_followings, class_name: 'Following', foreign_key: :followed_id
   has_many :followers, through: :inverse_followings
@@ -13,4 +14,8 @@ class User < ApplicationRecord
   has_one_attached :avatar, dependent: :destroy
 
   scope :ordered_by_most_recent, ->(user) { where.not('id = ?', user).order(created_at: :desc).first(3) }
+
+  def opinions_from_followed_users
+    Opinion.where(author_id: [*followed_users])
+  end
 end
