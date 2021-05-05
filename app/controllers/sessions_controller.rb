@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:session][:username])
     if user
       log_in user
+      store_session_timestamps
       redirect_to root_path
     else
       flash.now[:danger] = 'Invalid username. Please enter a valid username or signup for a new account'

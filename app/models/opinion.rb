@@ -5,4 +5,6 @@ class Opinion < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
+
+  scope :created_after_last_session, ->(last_session_date) { where('created_at > ? AND created_at > ?', last_session_date, 1.day.ago) }
 end

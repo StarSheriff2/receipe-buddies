@@ -17,4 +17,8 @@ module OpinionsHelper
       time_stamp.to_date.strftime('%d %b').to_s
     end
   end
+
+  def get_latest_opinions_count
+    @timeline_opinions.created_after_last_session(get_last_session_date).count
+  end
 end

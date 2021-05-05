@@ -13,7 +13,7 @@
 
     <% if @timeline_opinions.any? %>
       <main class="opinions-list-wrapper p-4">
-        <p class="new-opinions-count pr-4 pb-4"><%= @timeline_opinions.count %> NEW RECIPES SHARED</p>
+        <p class="new-opinions-count pr-4 pb-4"><%= get_latest_opinions_count %> NEW RECIPES SHARED</p>
         <hr>
         <% @timeline_opinions.each do |opinion| %>
           <div class="opinion-card pt-4 overflow-hidden">
