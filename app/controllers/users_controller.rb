@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    @user.photo = @user.avatar.key if @user.avatar.attached?
+    attach_avatar
 
     if @user.save
       redirect_to @user, notice: 'User was successfully updated.'
@@ -65,5 +65,10 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:username, :fullname, :photo, :cover_image, :avatar)
+  end
+
+
+  def attach_avatar
+    @user.photo = @user.avatar.key if @user.avatar.attached?
   end
 end
