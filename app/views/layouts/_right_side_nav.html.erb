@@ -1,3 +1,3 @@
 <aside class="right-side-nav border border-danger position-fixed">
-  <%= render('layouts/homepage_right_side_nav', users: User.ordered_by_most_recent(current_user)) if root_path %>
+  <%= render('layouts/homepage_right_side_nav', users: current_user.new_suggestions.ordered_by_most_recent) if root_path %>
 </aside>
