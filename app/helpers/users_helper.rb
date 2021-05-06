@@ -1,9 +1,21 @@
 module UsersHelper
-  def profile_picture(user, dimensions = [100, 100], gravity: :face, crop: :thumb, radius: nil, alt: nil, class_name: nil)
+  def profile_picture(user, dimensions, alt: nil, class_name: nil, radius: nil)
     if user.avatar.attached?
-      cl_image_tag(user.avatar.key, :alt=>alt, :class=>class_name, :width=>dimensions[0], :height=>dimensions[1], :crop=>crop, :gravity => gravity, :radius=>radius, :fetch_format=>:auto)
+      cl_image_tag(user.avatar.key, width: dimensions, height: dimensions, alt: alt, class: class_name,
+                                    crop: :fill, gravity: :face, radius: radius, fetch_format: :auto)
     else
-      image_tag('blank-profile-picture', class: class_name, width: dimensions[0], height: dimensions[0], alt: alt)
+      image_tag('blank-profile-picture', class: class_name, width: dimensions, height: dimensions, alt: alt)
+    end
+  end
+
+  def profile_picture_left_nav(user, dimensions)
+    if user.avatar.attached?
+      cl_image_tag(user.avatar.key, width: dimensions, height: dimensions,
+                                    alt: 'profile picture of logged user', class: 'left-menu-profile-pic',
+                                    crop: :thumb, gravity: :face, fetch_format: :auto)
+    else
+      image_tag('blank-profile-picture', width: dimensions, height: dimensions, class: 'left-menu-profile-pic',
+                                         alt: 'profile picture of logged user')
     end
   end
 end

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :logged_in_user, only: [:new, :create]
+  skip_before_action :logged_in_user, only: %i[new create]
   before_action :store_session_logout_date, only: [:destroy]
 
   def new; end

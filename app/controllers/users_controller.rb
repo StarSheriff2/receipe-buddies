@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :logged_in_user, only: [:new, :create, :index, :show]
+  skip_before_action :logged_in_user, only: %i[new create index show]
   before_action :set_user, only: %i[edit update destroy]
 
   # GET /users
@@ -66,7 +66,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :fullname, :photo, :cover_image, :avatar)
   end
-
 
   def attach_avatar
     @user.photo = @user.avatar.key if @user.avatar.attached?

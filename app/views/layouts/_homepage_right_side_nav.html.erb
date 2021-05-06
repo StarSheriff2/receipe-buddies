@@ -5,7 +5,7 @@
     <ul class="recently-joined-users py-3 px-4">
       <% users.each do |user| %>
         <li class="new-user-card d-flex mb-3">
-          <%= profile_picture(user, [40, 40], crop: :fill, radius: "max", alt: "user-thumbnail-picture", class_name:"new-user-thumb-pic mr-2")%>
+          <%= profile_picture(user, 40, radius: "max", alt: "user-thumbnail-picture", class_name:"new-user-thumb-pic mr-2")%>
           <div class="new-user-info">
             <h3 class="new-user-name"><%= user.fullname %></h3>
             <% if user.followers.any? %>

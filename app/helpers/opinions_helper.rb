@@ -18,7 +18,7 @@ module OpinionsHelper
     end
   end
 
-  def get_latest_opinions_count
-    @timeline_opinions.created_after_last_logout(get_last_session_logout_date).count
+  def latest_opinions_count
+    @timeline_opinions.created_after_last_logout(last_session_logout_date).count
   end
 end
