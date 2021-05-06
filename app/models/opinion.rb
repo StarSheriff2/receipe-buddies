@@ -6,5 +6,5 @@ class Opinion < ApplicationRecord
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
-  scope :created_after_last_session, ->(last_session_date) { where('created_at > ? AND created_at > ?', last_session_date, 1.day.ago) }
+  scope :created_after_last_logout, ->(last_logout_date) { where('created_at > ? AND created_at > ?', last_logout_date, 1.day.ago) }
 end

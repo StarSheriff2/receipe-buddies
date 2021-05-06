@@ -13,7 +13,6 @@
 
   <div class="field pb-2">
     <%= form.text_area :text, id: :opinion_text, class: 'opinion-text w-100 px-4 pt-4 pb-0', placeholder: 'Your thoughts about this recipe' %>
-    <%= form.hidden_field :created_at, value: Time.current %>
     <%= form.hidden_field :author_id, value: current_user.id %>
   </div>
 
