@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_action :logged_in_user, only: [:new, :create]
-  #before_action :store_session_logout_date, only: [:destroy]
+  before_action :store_session_logout_date, only: [:destroy]
 
   def new; end
 
-  # "Create" a login, aka "log the user in"
   def create
     user = User.find_by(username: params[:session][:username])
     if user
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    store_session_logout_date
     log_out
     redirect_to login_path
   end
