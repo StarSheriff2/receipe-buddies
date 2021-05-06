@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
-    <%= profile_picture(@user, 100) %>
-<%= @user.fullname %>
-<%= link_to 'Back', users_path %>
+<div class="user-page-container position-absolute border border-danger">
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+
+  <%= render './opinions/top_nav' %>
+
+  <div class="opinions-dashboard-container p-4">
+    <div class="create-new-opinion p-4 mb-4">
+      <h2 class='pb-2'>SHARE A RECIPE</h2>
+      <%= render './opinions/form', opinion: Opinion.new %>
+    </div>
+
+    <% if @opinions.any? %>
+      <main class="opinions-list-wrapper p-4">
+        <p class="pr-4 pb-4">ALL RECIPES SHARED</p>
+        <hr>
+        <% @opinions.each do |opinion| %>
+          <div class="opinion-card pt-4 overflow-hidden">
+            <%= profile_picture(opinion.author, 50, alt:"author thumbnail picture", class_name:"opinion-author-thumb-pic mr-3 float-left")%>
+            <div class="opinion-info d-flex justify-content-between flex-grow-1">
+              <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
+              <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
+            </div>
+            <p><%= opinion.text %></p>
+          </div>
+        <% end %>
+      </main>
+    <% end %>
+  </div>
+</div>

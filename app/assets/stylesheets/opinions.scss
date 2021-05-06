@@ -1,13 +1,15 @@
 @import "bootstrap/scss/bootstrap";
 @import "global_settings";
 
-.opinions-index-container {
+.opinions-index-container,
+.user-page-container {
   left: 250px;
   top: 100px;
   right: 250px;
 }
 
-.opinions-index-nav {
+.opinions-index-nav,
+.user-page-nav {
   height: 100px;
 }
 

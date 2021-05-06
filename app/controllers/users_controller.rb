@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     @user = User.find(params[:id])
+    @opinions = @user.opinions.ordered_by_most_recent
   end
 
   # GET /users/new
