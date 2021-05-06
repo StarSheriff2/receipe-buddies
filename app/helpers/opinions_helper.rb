@@ -8,7 +8,7 @@ module OpinionsHelper
     when 1...5
       'few min ago'
     when 5...60
-      "#{diff_in_min} min ago"
+      "#{diff_in_min.to_i} min ago"
     when 60...120
       '1 hr ago'
     when 120...1440
@@ -16,5 +16,9 @@ module OpinionsHelper
     else
       time_stamp.to_date.strftime('%d %b').to_s
     end
+  end
+
+  def latest_opinions_count
+    @timeline_opinions.created_after_last_logout(last_session_logout_date).count
   end
 end

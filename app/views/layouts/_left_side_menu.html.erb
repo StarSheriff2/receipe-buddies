@@ -1,0 +1,28 @@
+<nav class="left-side-menu m-md-0 p-4 position-fixed">
+  <h2 class="hidden">Left Menu</h2>
+  <div class="left-menu-profile d-flex align-items-center pb-4">
+    <%= profile_picture_left_nav(current_user, 50) %>
+    <h2 class="ml-4"><%= current_user.fullname.upcase! %></h2>
+  </div>
+  <div class="left-menu-stats d-flex py-4 justify-content-around">
+    <div class="d-flex flex-column align-items-center">
+      <span class="count">184</span>
+      <span class="stat-label">Following</span></div>
+    <div class="d-flex flex-column align-items-center">
+      <span class="count">823</span>
+      <span class="stat-label">Followers</span>
+    </div>
+  </div>
+  <ul class="left-menu-links">
+    <li class="left-menu-link-home d-flex align-items-center py-4">
+      <%= link_to '', opinions_path, class:'stretched-link' %>
+      <i class="fas fa-home mr-3"></i>
+      <h2>HOME</h2>
+    </li>
+    <li class="left-menu-link-profile d-flex align-items-center py-4">
+      <%= link_to '', user_path(current_user), class:'stretched-link' %>
+      <i class="fas fa-user mr-3"></i>
+      <h2>PROFILE</h2>
+    </li>
+  </ul>
+</nav>

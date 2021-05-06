@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
+  <div class="field pb-2">
+    <%= form.text_area :text, id: :opinion_text, class: 'opinion-text w-100 px-4 pt-4 pb-0', placeholder: 'Your thoughts about this recipe' %>
+    <%= form.hidden_field :author_id, value: current_user.id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'SHARE', class: 'share-opinion-bt w-100 btn' %>
   </div>
 <% end %>

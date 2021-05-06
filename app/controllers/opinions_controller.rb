@@ -1,9 +1,9 @@
 class OpinionsController < ApplicationController
-  before_action :set_opinion, only: %i[show edit update destroy]
+  before_action :set_opinion, only: %i[show index edit update destroy]
 
   # GET /opinions
   def index
-    @opinions = Opinion.all
+    timeline_opinions
     @opinion = Opinion.new
   end
 
@@ -30,11 +30,15 @@ class OpinionsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_opinion
-    @opinion = Opinion.find(params[:id])
+    current_user?(@user)
   end
 
   # Only allow a list of trusted parameters through.
   def opinion_params
     params.require(:opinion).permit(:author_id, :text)
+  end
+
+  def timeline_opinions
+    @timeline_opinions ||= current_user.opinions_from_followed_users.ordered_by_most_recent.includes(:author)
   end
 end
