@@ -67,11 +67,13 @@ body {
 h1,
 h2 {
   @include font-styles($font-size: 0.9rem, $line-height: 0.9rem);
+
   margin: 0;
 }
 
 h3 {
   @include font-styles($font-size: 0.8rem, $letter-spacing: -0.3px);
+
   margin: 0;
 }
 
