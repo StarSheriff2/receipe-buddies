@@ -61,7 +61,7 @@
 }
 
 .header-navbar-links {
-  width: 250px;
+  width: 280px;
 }
 
 .header-navbar-links .fas {
@@ -78,7 +78,7 @@
   top: 100px;
   right: 0;
   bottom: 0;
-  width: 250px;
+  width: 280px;
 }
 
 // HOMEPAGE-RIGHT-SIDE-NAV
@@ -90,8 +90,18 @@
 
 // USERPAGE-RIGHT-SIDE-NAV
 
-.follower-card .fas {
-  font-size: 2rem;
+.fa-plus-circle,
+.fa-minus-circle {
+  font-size: 2.1rem;
+}
+
+.fa-list-ul {
+  font-size: 1.4rem;
+}
+
+.profile-info-fullname {
+  font-size: 1.3rem;
+  color: $header-gray;
 }
 
 .follower-username {

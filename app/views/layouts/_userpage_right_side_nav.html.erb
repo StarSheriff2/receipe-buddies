@@ -1,3 +1,28 @@
+<div class="profile-detailed-info">
+  <div class="profile-info-actions p-4 d-flex flex-column align-items-center">
+    <div class="profile-info-picture-div d-flex p-4 align-items-center">
+      <% if !current_user.following?(user) %>
+        <%= link_to followings_path(following: { follower_id: current_user, followed_id: user }), method: 'POST' do %>
+            <i class="fas fa-plus-circle"></i>
+        <% end %>
+      <% else %>
+        <%= link_to following_path(current_user.following_record(user)), method: 'DELETE' do %>
+            <i class="fas fa-minus-circle"></i>
+        <% end %>
+      <% end %>
+      <%= profile_picture_circle(user, 80, alt: "profile info picture", class_name:"profile-info-picture mx-2")%>
+      <%= link_to do %>
+        <i class="fas fa-list-ul"></i>
+      <% end %>
+    </div>
+    <h2 class="profile-info-fullname mb-1"><%= user.fullname.upcase %></h2>
+    <p class="profile-info-username-handle"><%= "@#{user.username}" %></p>
+  </div>
+  <div class="profile-info-stats">
+
+  </div>
+</div>
+
 <div class="followed-by-module">
   <h3 class="followed-by-module-title d-flex px-4 align-items-center justify-content-start border border-info">FOLLOWED BY</h3>
   <hr class="m-0">
@@ -7,8 +32,8 @@
         <li class="follower-card d-flex justify-content-between mb-3 align-items-center">
           <div class="profile-info-div d-flex position-relative">
             <%= link_to '', user_path(user), class:'stretched-link' %>
-            <%= profile_picture(user, 40, radius: "max", alt: "user-thumbnail-picture", class_name:"new-user-thumb-pic mr-2")%>
-            <div class="follower-info">
+            <%= profile_picture_circle(user, 40, alt: "user-thumbnail-picture", class_name:"new-user-thumb-pic mr-2")%>
+            <div class="follower-info d-flex flex-column justify-content-center">
               <h3 class="follower-fullname"><%= user.fullname %></h3>
               <p class="follower-username"><%= "@#{user.username}" %></p>
             </div>

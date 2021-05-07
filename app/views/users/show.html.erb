@@ -1,7 +1,7 @@
 <%= render 'layouts/left_side_menu' %>
 <%= render 'layouts/header_nav' %>
 <%= render 'layouts/right_side_nav' do %>
-    <%= render('layouts/userpage_right_side_nav', users: @user.followers.where.not(id: current_user)) %>
+    <%= render('layouts/userpage_right_side_nav', user: @user, users: @user.followers.where.not(id: current_user)) %>
 <% end %>
 
 <div class="user-page-container position-absolute border border-danger">
@@ -18,7 +18,7 @@
         <hr>
         <% @opinions.each do |opinion| %>
           <div class="opinion-card pt-4 overflow-hidden">
-            <%= profile_picture(opinion.author, 50, alt:"author thumbnail picture", class_name:"opinion-author-thumb-pic mr-3 float-left")%>
+            <%= profile_picture_circle(opinion.author, 50, alt:"author thumbnail picture", class_name:"opinion-author-thumb-pic mr-3 float-left")%>
             <div class="opinion-info d-flex justify-content-between flex-grow-1">
               <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
               <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>

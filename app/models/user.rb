@@ -26,4 +26,8 @@ class User < ApplicationRecord
   def following?(user)
     followings.exists?(followed_id: user)
   end
+
+  def following_record(user)
+    Following.find_by(follower_id: self, followed_id: user)
+  end
 end
