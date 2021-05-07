@@ -14,7 +14,7 @@ class FollowingsController < ApplicationController
     @following = Following.new(following_params)
 
     if @following.save
-      redirect_to user_path(@following.followed_id), notice: 'Following was successfully created.'
+      redirect_to user_path(@following.followed_id), notice: 'You are now following this user.'
     else
       render :new
     end

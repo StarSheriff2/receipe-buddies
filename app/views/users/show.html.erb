@@ -1,7 +1,3 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
-
 <%= render 'layouts/left_side_menu' %>
 <%= render 'layouts/header_nav' %>
 <%= render 'layouts/right_side_nav' do %>
@@ -9,6 +5,10 @@
 <% end %>
 
 <div class="user-page-container position-absolute">
+
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
 
   <%= render './opinions/top_nav' %>
 

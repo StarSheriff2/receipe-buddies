@@ -51,6 +51,17 @@ $light-gray: #c6c6c8;
   overflow: -moz-hidden-unscrollable;
 }
 
+#notice {
+  color: $light-gray;
+  background-color: $header-gray;
+  width: 100%;
+  // border-right: 1px solid $light-gray;
+  // border-left: 1px solid $light-gray;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1rem;
+}
+
 /*
   =======================
   Typography
