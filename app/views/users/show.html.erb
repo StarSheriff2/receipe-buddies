@@ -12,14 +12,9 @@
   <%= render './opinions/top_nav' %>
 
   <div class="opinions-dashboard-container p-4">
-    <div class="create-new-opinion p-4 mb-4">
-      <h2 class='pb-2'>SHARE A RECIPE</h2>
-      <%= render './opinions/form', opinion: Opinion.new %>
-    </div>
-
     <% if @opinions.any? %>
       <main class="opinions-list-wrapper p-4">
-        <p class="pr-4 pb-4">ALL RECIPES SHARED</p>
+        <p class="pr-4 pb-4">ALL RECIPES SHARED BY THIS <%= current_user.following?(@user)? 'BUDDY': 'USER' %></p>
         <hr>
         <% @opinions.each do |opinion| %>
           <div class="opinion-card pt-4 overflow-hidden">
