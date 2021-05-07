@@ -15,8 +15,6 @@ class User < ApplicationRecord
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc).first(3) }
 
-  #scope :new_suggestions, ->(users) { where.not('id = ?', [*users, self]).ordered_by_most_recent }
-
   def new_suggestions
     User.where.not(id: [*followed_users, self])
   end
