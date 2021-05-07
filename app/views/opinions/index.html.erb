@@ -25,9 +25,9 @@
         <hr>
         <% @timeline_opinions.each do |opinion| %>
           <div class="opinion-card pt-4 overflow-hidden">
-            <%= profile_picture(opinion.author, 50, alt:"author thumbnail picture", class_name:"opinion-author-thumb-pic mr-3 float-left")%>
+            <%= link_to profile_picture(opinion.author, 50, alt:"author thumbnail picture", class_name:"opinion-author-thumb-pic mr-3 float-left"), user_path(opinion.author) %>
             <div class="opinion-info d-flex justify-content-between flex-grow-1">
-              <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
+              <h3 class="opinion-author-name"><%= link_to opinion.author.username, user_path(opinion.author) %></h3>
               <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
             </div>
             <p><%= opinion.text %></p>
