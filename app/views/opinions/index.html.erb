@@ -4,7 +4,7 @@
     <%= render('layouts/homepage_right_side_nav', users: current_user.new_suggestions.ordered_by_most_recent) %>
 <% end %>
 
-<div class="opinions-index-container position-absolute border border-danger">
+<div class="opinions-index-container position-absolute">
   <% if notice %>
     <p id="notice"><%= notice %></p>
   <% end %>
