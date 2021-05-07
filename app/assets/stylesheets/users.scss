@@ -1,3 +1,28 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "bootstrap/scss/bootstrap";
+@import "global_settings";
+
+.user-page-container {
+  left: 250px;
+  top: 100px;
+  right: 250px;
+}
+
+.opinions-index-nav,
+.user-page-nav {
+  height: 100px;
+}
+
+.create-new-opinion,
+.opinions-list-wrapper {
+  background-color: $bg-white;
+}
+
+.share-opinion-bt {
+  background-color: $primary-color;
+  color: $bg-white;
+}
+
+.new-opinions-count {
+  color: $primary-color;
+  line-height: 0.5rem;
+}

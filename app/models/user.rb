@@ -24,8 +24,8 @@ class User < ApplicationRecord
   def opinions_from_followed_users
     Opinion.where(author_id: [*followed_users])
   end
-end
 
-# def friends_and_own_posts
-#   Post.where(user_id: [*friends, self])
-# end
+  def following?(user)
+    followings.exists?(followed_id: user)
+  end
+end

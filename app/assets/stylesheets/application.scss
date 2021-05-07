@@ -83,13 +83,17 @@
 
 // HOMEPAGE-RIGHT-SIDE-NAV
 
-.who-to-follow-module-title {
+.who-to-follow-module-title,
+.followed-by-module-title  {
   height: 100px;
 }
 
-.top-image-container {
-  border: 2px solid white;
-  margin-right: 25px;
-  width: 75px;
-  height: 75px;
+// USERPAGE-RIGHT-SIDE-NAV
+
+.follower-card .fas {
+  font-size: 2rem;
+}
+
+.follower-username {
+  font-size: 0.7rem;
 }

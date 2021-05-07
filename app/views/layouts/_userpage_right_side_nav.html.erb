@@ -1,0 +1,25 @@
+<div class="followed-by-module">
+  <h3 class="followed-by-module-title d-flex px-4 align-items-center justify-content-start border border-info">FOLLOWED BY</h3>
+  <hr class="m-0">
+  <% if users %>
+    <ul class="followed-by-module-followers py-3 px-4">
+      <% users.each do |user| %>
+        <li class="follower-card d-flex justify-content-between mb-3 align-items-center">
+          <div class="profile-info-div d-flex position-relative">
+            <%= link_to '', user_path(user), class:'stretched-link' %>
+            <%= profile_picture(user, 40, radius: "max", alt: "user-thumbnail-picture", class_name:"new-user-thumb-pic mr-2")%>
+            <div class="follower-info">
+              <h3 class="follower-fullname"><%= user.fullname %></h3>
+              <p class="follower-username"><%= "@#{user.username}" %></p>
+            </div>
+          </div>
+          <% if !current_user.following?(user) %>
+            <%= link_to followings_path(following: { follower_id: current_user, followed_id: user }), method: 'POST' do %>
+              <i class="fas fa-plus-circle"></i>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

@@ -1,3 +1,9 @@
+<%= render 'layouts/left_side_menu' %>
+<%= render 'layouts/header_nav' %>
+<%= render 'layouts/right_side_nav' do %>
+    <%= render('layouts/homepage_right_side_nav', users: current_user.new_suggestions.ordered_by_most_recent) %>
+<% end %>
+
 <div class="opinions-index-container position-absolute border border-danger">
   <% if notice %>
     <p id="notice"><%= notice %></p>

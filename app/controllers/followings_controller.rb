@@ -14,7 +14,7 @@ class FollowingsController < ApplicationController
     @following = Following.new(following_params)
 
     if @following.save
-      redirect_to @following, notice: 'Following was successfully created.'
+      redirect_to root_path, notice: 'Following was successfully created.'
     else
       render :new
     end
