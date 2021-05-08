@@ -1,19 +1,24 @@
-<nav class="left-side-menu m-md-0 p-4 position-fixed">
+<nav class="left-side-menu m-md-0 position-fixed">
   <h2 class="hidden">Left Menu</h2>
-  <div class="left-menu-profile d-flex align-items-center pb-4">
-    <%= profile_picture_square(current_user, 50) %>
-    <h2 class="ml-4"><%= current_user.fullname.upcase! %></h2>
-  </div>
-  <div class="left-menu-stats d-flex py-4 justify-content-around">
-    <div class="d-flex flex-column align-items-center">
-      <span class="count">184</span>
-      <span class="stat-label">Following</span></div>
-    <div class="d-flex flex-column align-items-center">
-      <span class="count">823</span>
-      <span class="stat-label">Followers</span>
+  <div class="left-menu-top">
+    <div class="left-menu-profile d-flex align-items-center p-4">
+      <%= profile_picture_square(current_user, 50) %>
+      <h2 class="ml-4"><%= current_user.fullname.upcase! %></h2>
+    </div>
+    <div class="left-menu-stats d-flex">
+      <div
+        class="left-menu-user-stats-box left-menu-user-stats-box-l d-flex flex-column justify-content-center align-items-center flex-shrink-0 flex-grow-0 py-4">
+        <p class="user-stats-total-left-menu"><%= current_user.followings.count %></p>
+        <p>Following</p>
+      </div>
+      <div
+        class="left-menu-user-stats-box d-flex flex-column justify-content-center align-items-center flex-shrink-0 flex-grow-0 py-4">
+        <p class="user-stats-total-left-menu"><%= current_user.followers.count %></p>
+        <p>Followers</p>
+      </div>
     </div>
   </div>
-  <ul class="left-menu-links">
+  <ul class="left-menu-links px-4">
     <li class="left-menu-link-home d-flex align-items-center py-4">
       <%= link_to '', opinions_path, class:'stretched-link' %>
       <i class="fas fa-home mr-3"></i>

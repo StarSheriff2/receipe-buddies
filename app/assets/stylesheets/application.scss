@@ -23,11 +23,33 @@
   left: 0;
 }
 
-.left-menu-profile h2 {
-  font-size: 0.7rem;
+.left-menu-top {
+  background-color: $dark-secondary-color;
 }
 
-.left-menu-stats .count {
+.left-menu-profile,
+.left-menu-stats {
+  height: 80px;
+  border-bottom: solid 1px $dark-secondary-color-border;
+}
+
+.left-menu-profile h2 {
+  font-size: 0.8rem;
+}
+
+.left-menu-stats {
+  height: 80px;
+}
+
+.left-menu-user-stats-box {
+  flex-basis: calc(250px/2);
+}
+
+.left-menu-user-stats-box-l {
+  border-right: solid 1px $dark-secondary-color-border;
+}
+
+.user-stats-total-left-menu {
   color: $bg-white;
   font-size: 1.2rem;
 }
