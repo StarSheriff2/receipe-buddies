@@ -18,4 +18,12 @@ module UsersHelper
                                          alt: 'profile picture of logged user')
     end
   end
+
+  def cover_picture(user)
+    if user.cover_image.attached?
+      content_tag(:div, "", class: "cover-picture-div", style: "background: url(#{ @user.cover_image.url }) center center/cover;")
+    else
+      return
+    end
+  end
 end

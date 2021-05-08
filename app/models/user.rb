@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar, dependent: :destroy
 
+  has_one_attached :cover_image, dependent: :destroy
+
   scope :ordered_by_most_recent, -> { order(created_at: :desc).first(3) }
 
   def new_suggestions
