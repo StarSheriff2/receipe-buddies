@@ -8,14 +8,14 @@ module UsersHelper
     end
   end
 
-  def profile_picture_square(user, dimensions)
+  def profile_picture_square(user, dimensions, alt: nil, class_name: nil)
     if user.avatar.attached?
       cl_image_tag(user.avatar.key, width: dimensions, height: dimensions,
-                                    alt: 'profile picture of logged user', class: 'left-menu-profile-pic',
+                                    alt: alt, class: class_name,
                                     crop: :thumb, gravity: :face, fetch_format: :auto)
     else
-      image_tag('blank-profile-picture', width: dimensions, height: dimensions, class: 'left-menu-profile-pic',
-                                         alt: 'profile picture of logged user')
+      image_tag('blank-profile-picture', width: dimensions, height: dimensions, class: class_name,
+                                         alt: alt)
     end
   end
 
