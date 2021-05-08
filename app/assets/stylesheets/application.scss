@@ -59,6 +59,13 @@
   position: relative;
 }
 
+.left-menu-link-home:hover,
+.left-menu-link-profile:hover,
+.left_menu_link_active {
+  background-color: $primary-color;
+  color: $bg-white;
+}
+
 .left-menu-links .fas {
   font-size: 1.5rem;
 }

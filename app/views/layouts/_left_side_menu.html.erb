@@ -18,16 +18,16 @@
       </div>
     </div>
   </div>
-  <ul class="left-menu-links px-4">
-    <li class="left-menu-link-home d-flex align-items-center py-4">
+  <ul class="left-menu-links">
+    <%= tag.li class: "left-menu-link-home d-flex align-items-center py-4 #{active_link_home}" do %>
       <%= link_to '', opinions_path, class:'stretched-link' %>
-      <i class="fas fa-home mr-3"></i>
+      <i class="fas fa-home ml-4 mr-3"></i>
       <h2>HOME</h2>
-    </li>
-    <li class="left-menu-link-profile d-flex align-items-center py-4">
+    <% end %>
+    <%= tag.li class: "left-menu-link-profile d-flex align-items-center py-4 #{active_link_current_user}" do %>
       <%= link_to '', user_path(current_user), class:'stretched-link' %>
-      <i class="fas fa-user mr-3"></i>
+      <i class="fas fa-user ml-4 mr-3"></i>
       <h2>PROFILE</h2>
-    </li>
+    <% end %>
   </ul>
 </nav>
