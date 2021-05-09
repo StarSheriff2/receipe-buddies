@@ -35,4 +35,11 @@
 
 .opinions-text {
   margin-left: calc(50px + 1rem);
+  font-size: 0.8rem;
+}
+
+.opinion-author-name {
+  color: $header-gray;
+  font-weight: bold;
+  font-size: 0.9rem;
 }

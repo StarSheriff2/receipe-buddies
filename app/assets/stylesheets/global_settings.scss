@@ -17,7 +17,22 @@ $dark-secondary-color-border: #16272e;
 $bg-gray: #f5f6f8;
 $bg-white: #fff;
 
-// Fonts //
+/*
+  =======================
+  Fonts
+  =======================
+*/
+
+// Font Face //
+
+@font-face {
+  font-family: 'Lato';
+  src: url('fonts/Lato-Regular.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Font Family Variables //
 
 $primary-font: 'Lato',
   sans-serif;
