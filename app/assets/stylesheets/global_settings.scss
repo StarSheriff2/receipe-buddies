@@ -12,6 +12,8 @@ html {
 
 $primary-color: #50a4e2;
 $secondary-color: #213246;
+$dark-secondary-color: #1b2a3d;
+$dark-secondary-color-border: #16272e;
 $bg-gray: #f5f6f8;
 $bg-white: #fff;
 
@@ -64,7 +66,12 @@ body {
   background-color: $bg-gray;
 }
 
-h1,
+h1 {
+  @include font-styles($font-size: 1.3rem, $line-height: 0.9rem);
+
+  margin: 0;
+}
+
 h2 {
   @include font-styles($font-size: 0.9rem, $line-height: 0.9rem);
 
@@ -96,4 +103,51 @@ ul {
 p,
 hr {
   margin: 0;
+}
+
+/*
+  =======================
+  Router Messages
+  =======================
+*/
+
+#error_explanation {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: $bg-white;
+  background-color: rgb(170, 126, 126);
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 1.4rem;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  list-style: round($number: 2);
+}
+
+.field_with_errors {
+  width: 100%;
+  padding: 2px;
+  border: 2px solid red;
+}
+
+#notice {
+  color: $light-gray;
+  background-color: $header-gray;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1rem;
 }

@@ -1,13 +1,13 @@
 <div class="who-to-follow-module">
-  <h3 class="who-to-follow-module-title d-flex px-4 align-items-center justify-content-start border border-info">WHO TO FOLLOW</h3>
+  <h3 class="who-to-follow-module-title d-flex px-4 align-items-center justify-content-start">WHO TO FOLLOW</h3>
   <hr class="m-0">
   <% if users %>
     <ul class="recently-joined-users py-3 px-4">
       <% users.each do |user| %>
         <li class="new-user-card d-flex mb-3">
-          <%= profile_picture(user, 40, radius: "max", alt: "user-thumbnail-picture", class_name:"new-user-thumb-pic mr-2")%>
+          <%= link_to profile_picture_circle(user, 40, alt: "user-thumbnail-picture", class_name:"new-user-thumb-pic mr-2"), user_path(user) %>
           <div class="new-user-info">
-            <h3 class="new-user-name"><%= user.fullname %></h3>
+            <h3 class="new-user-name"><%= link_to user.fullname, user_path(user) %></h3>
             <% if user.followers.any? %>
               <p class="new-user-followed-by">Followed by <%= link_to user.followers.first.fullname, user_path(user.followers.first) %></p>
             <% end %>

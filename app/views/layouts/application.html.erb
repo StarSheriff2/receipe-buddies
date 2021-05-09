@@ -3,6 +3,7 @@
   <head>
     <title>ReceipeBuddies</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,12 +14,6 @@
   <body>
 
     <div class="page-container position-relative">
-      <% if logged_in? && root_path || logged_in? && user_path %>
-        <%= render 'layouts/left_side_menu' %>
-        <%= render 'layouts/header_nav' %>
-        <%= render 'layouts/right_side_nav' %>
-      <% end %>
-
       <%= yield %>
     </div>
 

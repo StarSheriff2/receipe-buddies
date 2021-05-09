@@ -1,20 +1,12 @@
 class FollowingsController < ApplicationController
-  before_action :set_following, only: %i[show edit update destroy]
-
-  # GET /followings
-  def index
-    @followings = Following.all
-  end
-
-  # GET /followings/1
-  def show; end
+  before_action :set_following, only: :destroy
 
   # POST /followings
   def create
     @following = Following.new(following_params)
 
     if @following.save
-      redirect_to @following, notice: 'Following was successfully created.'
+      redirect_to user_path(@following.followed_id), notice: 'You are now following this user.'
     else
       render :new
     end
@@ -22,8 +14,9 @@ class FollowingsController < ApplicationController
 
   # DELETE /followings/1
   def destroy
+    user_id = @following.followed_id
     @following.destroy
-    redirect_to followings_url, notice: 'Following was successfully destroyed.'
+    redirect_to user_path(user_id), notice: 'You have successfully unfollowed this user.'
   end
 
   private

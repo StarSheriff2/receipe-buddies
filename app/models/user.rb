@@ -13,9 +13,23 @@ class User < ApplicationRecord
 
   has_one_attached :avatar, dependent: :destroy
 
-  scope :ordered_by_most_recent, ->(user) { where.not('id = ?', user).order(created_at: :desc).first(3) }
+  has_one_attached :cover_image, dependent: :destroy
+
+  scope :ordered_by_most_recent, -> { order(created_at: :desc).first(3) }
+
+  def new_suggestions
+    User.where.not(id: [*followed_users, self])
+  end
 
   def opinions_from_followed_users
     Opinion.where(author_id: [*followed_users])
+  end
+
+  def following?(user)
+    followings.exists?(followed_id: user)
+  end
+
+  def following_record(user)
+    Following.find_by(follower_id: self, followed_id: user)
   end
 end

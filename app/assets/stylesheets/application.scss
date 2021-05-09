@@ -6,6 +6,7 @@
 @import "global_settings";
 @import "sessions";
 @import "opinions";
+@import "users";
 
 /*
   =======================
@@ -22,11 +23,33 @@
   left: 0;
 }
 
-.left-menu-profile h2 {
-  font-size: 0.7rem;
+.left-menu-top {
+  background-color: $dark-secondary-color;
 }
 
-.left-menu-stats .count {
+.left-menu-profile,
+.left-menu-stats {
+  height: 80px;
+  border-bottom: solid 1px $dark-secondary-color-border;
+}
+
+.left-menu-profile h2 {
+  font-size: 0.8rem;
+}
+
+.left-menu-stats {
+  height: 80px;
+}
+
+.left-menu-user-stats-box {
+  flex-basis: calc(250px / 2);
+}
+
+.left-menu-user-stats-box-l {
+  border-right: solid 1px $dark-secondary-color-border;
+}
+
+.user-stats-total-left-menu {
   color: $bg-white;
   font-size: 1.2rem;
 }
@@ -34,6 +57,13 @@
 .left-menu-link-home,
 .left-menu-link-profile {
   position: relative;
+}
+
+.left-menu-link-home:hover,
+.left-menu-link-profile:hover,
+.left_menu_link_active {
+  background-color: $primary-color;
+  color: $bg-white;
 }
 
 .left-menu-links .fas {
@@ -52,7 +82,7 @@
   left: 250px;
   top: 0;
   right: 0;
-  height: 100px;
+  height: 80px;
   z-index: $zindex-fixed;
 }
 
@@ -61,7 +91,7 @@
 }
 
 .header-navbar-links {
-  width: 250px;
+  width: 280px;
 }
 
 .header-navbar-links .fas {
@@ -75,21 +105,53 @@
 */
 
 .right-side-nav {
-  top: 100px;
+  top: 80px;
   right: 0;
   bottom: 0;
-  width: 250px;
+  width: 280px;
+  border-color: $dark-gray;
 }
 
 // HOMEPAGE-RIGHT-SIDE-NAV
 
-.who-to-follow-module-title {
-  height: 100px;
+.who-to-follow-module-title,
+.followed-by-module-title {
+  height: 80px;
 }
 
-.top-image-container {
-  border: 2px solid white;
-  margin-right: 25px;
-  width: 75px;
-  height: 75px;
+// USERPAGE-RIGHT-SIDE-NAV
+
+.fa-plus-circle,
+.empty-i,
+.fa-minus-circle,
+.fa-list-ul {
+  font-size: 2.1rem;
+}
+
+.profile-info-fullname {
+  line-height: normal;
+  font-size: 0.9rem;
+  color: $header-gray;
+}
+
+.user-stats-total {
+  font-size: 1.3rem;
+  color: $header-gray;
+}
+
+.profile-info-stats {
+  height: 80px;
+}
+
+.user-stats-box {
+  flex-basis: calc(280px / 3);
+}
+
+.follower-fullname {
+  font-size: 0.8rem;
+  color: $header-gray;
+}
+
+.follower-username {
+  font-size: 0.7rem;
 }

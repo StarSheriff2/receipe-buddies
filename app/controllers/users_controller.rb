@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
-  skip_before_action :logged_in_user, only: %i[new create index show]
+  skip_before_action :logged_in_user, only: %i[new create]
   before_action :set_user, only: %i[edit update destroy]
-
-  # GET /users
-  def index
-    @users = User.all
-  end
 
   # GET /users/1
   def show
     @user = User.find(params[:id])
+    @opinions = @user.opinions.ordered_by_most_recent
   end
 
   # GET /users/new
@@ -24,7 +20,9 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to @user,
+                  notice: "Welcome, #{@user.fullname}.
+                          You are now part of the biggest community of recipe enthusiasts in the world!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,7 +40,7 @@ class UsersController < ApplicationController
     attach_avatar
 
     if @user.save
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: 'You have successfully updated your profile.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -52,7 +50,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_url, notice: 'User was successfully deleted.'
+    redirect_to login_path, notice: 'Account deleted successfully.'
   end
 
   private

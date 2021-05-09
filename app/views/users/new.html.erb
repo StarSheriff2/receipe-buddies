@@ -1,5 +1,9 @@
-<h1>New User</h1>
+<div class="text-center container w-25 p-3 my-3 border">
+  <h1>Sign Up</h1>
+</div>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Back', users_path %>
+<div class="session-links text-center w-25 container p-3 my-3">
+  <p>Already a user? Back to <%= link_to 'Sign in', login_path %></p>
+</div>

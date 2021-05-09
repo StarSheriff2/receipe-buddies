@@ -1,4 +1,35 @@
-<p id="notice"><%= notice %></p>
-    <%= profile_picture(@user, [100, 100]) %>
-<%= @user.fullname %>
-<%= link_to 'Back', users_path %>
+<%= render 'layouts/left_side_menu' %>
+<%= render 'layouts/header_nav' %>
+<%= render 'layouts/right_side_nav' do %>
+    <%= render('layouts/userpage_right_side_nav', user: @user, users: @user.followers.where.not(id: current_user).limit(3)) %>
+<% end %>
+
+<div class="user-page-container position-absolute">
+
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+
+  <%= cover_picture(@user) %>
+
+  <%= render './opinions/top_nav' %>
+
+  <div class="opinions-dashboard-container p-4">
+    <% if @opinions.any? %>
+      <main class="opinions-list-wrapper p-4">
+        <p class="pr-4 pb-4">ALL RECIPES SHARED BY THIS <%= current_user.following?(@user)? 'BUDDY': 'USER' %></p>
+        <hr>
+        <% @opinions.each do |opinion| %>
+          <div class="opinion-card pt-4 overflow-hidden">
+            <%= profile_picture_square(opinion.author, 50, alt:"author thumbnail picture", class_name:"opinion-author-thumb-pic mr-3 float-left")%>
+            <div class="opinion-info d-flex justify-content-between flex-grow-1">
+              <h3 class="opinion-author-name"><%= opinion.author.username %></h3>
+              <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
+            </div>
+            <p><%= opinion.text %></p>
+          </div>
+        <% end %>
+      </main>
+    <% end %>
+  </div>
+</div>

@@ -1,28 +1,39 @@
-<%= form_with(model: user) do |form| %>
+<div class="w-25 container p-3 my-3 border">
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
         <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+  <%= form_with model: user do |form| %>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-    <%= form.label :fullname %>
-    <%= form.text_field :fullname %>
-    <%= form.label :photo %>
-    <%= form.file_field :avatar %>
-    <%= form.label :cover_image %>
-    <%= form.text_field :cover_image %>
-  </div>
+    <div class="form-group">
+      <%= form.label :username %>
+      <%= form.text_field :username, { class:"form-control", placeholder:"Set your username" } %>
+    </div>
+    <div class="form-group">
+      <%= form.label :fullname %>
+      <%= form.text_field :fullname, { class:"form-control", placeholder:"Enter your full name here" } %>
+    </div>
+    <div class="form-group">
+      <%= form.label :photo %>
+      <%= form.file_field :avatar, { class:"form-control", placeholder:"Please select your profile picture" } %>
+    </div>
+    <div class="form-group">
+      <%= form.label :cover_image %>
+      <%= form.file_field :cover_image, { class:"form-control", placeholder:"Upload your cover photo" } %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+
+    <%= form.submit user_submit_btn_text, class:"btn btn-outline-primary btn-lg btn-block" %>
+  <% end %>
+</div>
