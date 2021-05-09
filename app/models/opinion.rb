@@ -4,6 +4,8 @@ class Opinion < ApplicationRecord
 
   belongs_to :author, class_name: 'User'
 
+  has_many :votes
+
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
   scope :created_after_last_logout, lambda { |last_logout_date|
