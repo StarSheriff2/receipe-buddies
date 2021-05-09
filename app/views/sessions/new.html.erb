@@ -1,10 +1,17 @@
+
+<h2 class="hidden">Login</h2>
+<div class="text-center p-3 mb-4 bg-white">
+  <%= image_tag('logo.png', alt:'logo', width: 250) %>
+</div>
+
+
 <div class="text-center container w-25 p-3 my-3 border">
-  <h1>Sign in</h1>
+  <h1 class="text-dark">Sign in</h1>
 </div>
 
 <%= render 'form' %>
 
 <div class="session-links text-center w-25 container p-3 my-3">
-  <%= link_to 'Sign up', new_user_path %>
+  <p>No account?</p>
+  <%= link_to 'Sign up', new_user_path, class:"text-primary" %>
 </div>
-

@@ -1,13 +1,5 @@
 class FollowingsController < ApplicationController
-  before_action :set_following, only: %i[show edit update destroy]
-
-  # GET /followings
-  def index
-    @followings = Following.all
-  end
-
-  # GET /followings/1
-  def show; end
+  before_action :set_following, only: :destroy
 
   # POST /followings
   def create

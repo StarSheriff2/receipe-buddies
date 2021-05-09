@@ -42,7 +42,7 @@
 }
 
 .left-menu-user-stats-box {
-  flex-basis: calc(250px/2);
+  flex-basis: calc(250px / 2);
 }
 
 .left-menu-user-stats-box-l {
@@ -115,7 +115,7 @@
 // HOMEPAGE-RIGHT-SIDE-NAV
 
 .who-to-follow-module-title,
-.followed-by-module-title  {
+.followed-by-module-title {
   height: 80px;
 }
 
@@ -130,9 +130,6 @@
 
 .profile-info-fullname {
   line-height: normal;
-}
-
-.profile-info-fullname {
   font-size: 0.9rem;
   color: $header-gray;
 }
@@ -147,7 +144,7 @@
 }
 
 .user-stats-box {
-  flex-basis: calc(280px/3);
+  flex-basis: calc(280px / 3);
 }
 
 .follower-fullname {

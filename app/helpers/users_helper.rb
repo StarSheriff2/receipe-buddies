@@ -1,4 +1,8 @@
 module UsersHelper
+  def user_submit_btn_text
+    current_page?(new_user_path) ? 'Sign up' : 'Save new updates'
+  end
+
   def profile_picture_circle(user, dimensions, alt: nil, class_name: nil)
     if user.avatar.attached?
       cl_image_tag(user.avatar.key, width: dimensions, height: dimensions, alt: alt, class: class_name,

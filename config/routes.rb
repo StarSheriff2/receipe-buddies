@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   root 'opinions#index'
 
-  resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :opinions, only: [:index, :show, :new, :create]
-  resources :followings, only: [:index, :show, :create, :destroy]
+  resources :users, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :opinions, only: [:index, :create]
+  resources :followings, only: [:create, :destroy]
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+
+  get '*all', to: 'application#index', constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  } unless Rails.env.development?
 end
