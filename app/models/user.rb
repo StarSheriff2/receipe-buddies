@@ -34,4 +34,12 @@ class User < ApplicationRecord
   def following_record(user)
     Following.find_by(follower_id: self, followed_id: user)
   end
+
+  def voted?(opinion)
+    votes.exists?(opinion_id: opinion)
+  end
+
+  def vote_record(opinion)
+    Vote.find_by(user_id: self, opinion_id: opinion)
+  end
 end

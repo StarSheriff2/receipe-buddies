@@ -155,3 +155,30 @@
 .follower-username {
   font-size: 0.7rem;
 }
+
+/*
+  =======================
+  VOTE MODULE
+  =======================
+*/
+
+.vote-module {
+  margin-left: calc(50px + 1rem);
+  font-size: 0.8rem;
+}
+
+.vote-module .fa-thumbs-up {
+  font-size: 1.2rem;
+}
+
+.fas.fa-thumbs-up {
+  color: $primary-color;
+}
+
+.far.fa-thumbs-up {
+  color: $light-gray;
+}
+
+.vote-button-div span {
+  font-size: 0.7rem;
+}

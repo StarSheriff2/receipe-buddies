@@ -3,20 +3,21 @@ class VotesController < ApplicationController
 
   # POST /votes
   def create
-    @vote = vote.new(vote_params)
+    @vote = Vote.new(vote_params)
+    @path = params[:path]
 
     if @vote.save
-      redirect_to @vote.path, notice: 'You voted for this recipe.'
+      redirect_to @path
     else
-      redirect_to @vote.path, alert: 'You cannot vote for this recipe.'
+      redirect_to @path, alert: 'You cannot vote for this recipe.'
     end
   end
 
   # DELETE /votes/1
   def destroy
-    user_id = @vote.user_id
     @vote.destroy
-    redirect_to @vote.path, notice: 'You have unvoted this recipe.'
+    @path = params[:path]
+    redirect_to @path
   end
 
   private
@@ -28,6 +29,6 @@ class VotesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def vote_params
-    params.require(:vote).permit(:opinion_id, :user_id, :path)
+    params.require(:vote).permit(:opinion_id, :user_id)
   end
 end
