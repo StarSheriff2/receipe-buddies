@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :inverse_followings, class_name: 'Following', foreign_key: :followed_id
   has_many :followers, through: :inverse_followings
 
+  has_many :votes, dependent: :destroy
+
   has_one_attached :avatar, dependent: :destroy
 
   has_one_attached :cover_image, dependent: :destroy
@@ -31,5 +33,13 @@ class User < ApplicationRecord
 
   def following_record(user)
     Following.find_by(follower_id: self, followed_id: user)
+  end
+
+  def voted?(opinion)
+    votes.exists?(opinion_id: opinion)
+  end
+
+  def vote_record(opinion)
+    Vote.find_by(user_id: self, opinion_id: opinion)
   end
 end

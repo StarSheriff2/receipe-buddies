@@ -1,0 +1,4 @@
+<div class="vote-module mt-3 mb-2 d-flex justify-content-between">
+  <div class="vote-button-div d-flex align-items-center"><%= vote_button(opinion, path) %></div>
+  <%= pluralize(opinion.votes.count, "vote") if opinion.votes.any? %>
+</div>

@@ -98,6 +98,10 @@
   font-size: 1.3rem;
 }
 
+.header-navbar-links .fas:hover {
+  color: $secondary-color;
+}
+
 /*
   =======================
   RIGHT-SIDE-NAV
@@ -119,19 +123,32 @@
   height: 80px;
 }
 
+.new-user-name,
+.profile-info-fullname,
+.follower-fullname {
+  color: $header-gray;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
 // USERPAGE-RIGHT-SIDE-NAV
 
 .fa-plus-circle,
-.empty-i,
 .fa-minus-circle,
 .fa-list-ul {
   font-size: 2.1rem;
 }
 
+.fa-plus-circle:hover,
+.fa-minus-circle:hover,
+.fa-list-ul:hover {
+  font-size: 2.1rem;
+  color: $primary-color;
+}
+
 .profile-info-fullname {
   line-height: normal;
   font-size: 0.9rem;
-  color: $header-gray;
 }
 
 .user-stats-total {
@@ -147,11 +164,38 @@
   flex-basis: calc(280px / 3);
 }
 
-.follower-fullname {
-  font-size: 0.8rem;
-  color: $header-gray;
+.follower-username {
+  font-size: 0.7rem;
 }
 
-.follower-username {
+/*
+  =======================
+  VOTE MODULE
+  =======================
+*/
+
+.vote-module {
+  margin-left: calc(50px + 1rem);
+  font-size: 0.8rem;
+}
+
+.vote-module .fa-thumbs-up {
+  font-size: 1.2rem;
+}
+
+.fas.fa-thumbs-up {
+  color: $primary-color;
+}
+
+.far.fa-thumbs-up {
+  color: $light-gray;
+}
+
+.fas.fa-thumbs-up:hover,
+.far.fa-thumbs-up:hover {
+  color: $primary-color-icons;
+}
+
+.vote-button-div span {
   font-size: 0.7rem;
 }
