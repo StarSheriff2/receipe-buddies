@@ -14,7 +14,7 @@ In this platform, users can signup and start sharing opinions on their favorite 
 
 **Deployed on: HEROKU**
 
-[Recipe Buddies app](https://fast-wildwood-38105.herokuapp.com) ⬅️⬅️ Click Here
+[Recipe Buddies app]() ⬅️⬅️ Click Here
 
 ### Features
 
@@ -136,4 +136,4 @@ Lato font:
 
 ## 📝 License
 
-This project is [MIT](https://github.com/alexisbec/ror-social-scaffold/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/StarSheriff2/receipe-buddies/blob/testing/LICENSE) licensed.
