@@ -1,6 +1,6 @@
 module UsersHelper
   def user_submit_btn_text
-    current_page?(new_user_path) ? 'Sign up' : 'Save new updates'
+    current_page?(new_user_path) || current_page?(users_path) ? 'Sign up' : 'Save new updates'
   end
 
   def profile_picture_circle(user, dimensions, alt: nil, class_name: nil)
@@ -27,7 +27,7 @@ module UsersHelper
     return unless user.cover_image.attached?
 
     content_tag(:div, '', class: 'cover-picture-div',
-                          style: "background: url(#{url_for(@user.cover_image)}) center center/cover;")
+                          style: "background: url(#{url_for(user.cover_image)}) center center/cover;")
   end
 
   def follow_button(user)
