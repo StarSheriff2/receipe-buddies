@@ -32,8 +32,6 @@ module SessionsHelper
     return unless cookies[:logout_date]
 
     decoded_cookie = JSON.parse(cookies.encrypted[:logout_date])
-
-    puts decoded_cookie
     current_user_id_cookie = "user_id_#{current_user.id}"
     decoded_cookie[current_user_id_cookie]&.to_datetime
   end

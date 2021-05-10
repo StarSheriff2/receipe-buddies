@@ -1,6 +1,6 @@
 module UsersHelper
   def user_submit_btn_text
-    current_page?(new_user_path) || current_page?(users_path) ? 'Sign up' : 'Save new updates'
+    current_page?(new_user_path) ? 'Sign up' : 'Save new updates'
   end
 
   def profile_picture_circle(user, dimensions, alt: nil, class_name: nil)
