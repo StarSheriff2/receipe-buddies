@@ -27,7 +27,7 @@ module UsersHelper
     return unless user.cover_image.attached?
 
     content_tag(:div, '', class: 'cover-picture-div',
-                          style: "background: url(#{@user.cover_image.url}) center center/cover;")
+                          style: "background: url(#{url_for(@user.cover_image)}) center center/cover;")
   end
 
   def follow_button(user)

@@ -72,18 +72,17 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'when user record is deleted' do
-    it 'should delete all its followings' do
+  context 'when user who has followers and followings is deleted' do
+    it 'all its followings are destroyed too' do
       user1 = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
       user2 = User.create(username: 'Jane_Watson', fullname: 'Jane Watson')
-      following = user1.followings.create!(followed_id: user2.id)
+      user1.followings.create!(followed_id: user2.id)
       user1.destroy!
       record = Following.find_by(follower_id: user1.id, followed_id: user2.id)
       expect(record).to be_nil
-      expect(record).to_not eq(following)
     end
 
-    it 'should delete all its followers' do
+    it 'all its followers are destroyed too' do
       user1 = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
       user2 = User.create(username: 'Jane_Watson', fullname: 'Jane Watson')
       following = user2.followings.create(followed_id: user1.id)
@@ -92,8 +91,10 @@ RSpec.describe User, type: :model do
       expect(record).to be_nil
       expect(record).to_not eq(following)
     end
+  end
 
-    it 'should delete all its opinions' do
+  context 'when user who has opinions and votes is deleted' do
+    it 'all its opinions are destroyed too' do
       user = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
       opinion = Opinion.create(text: 'I highly recommend you try this receipe at home', author_id: user.id)
       user.destroy!
@@ -102,15 +103,16 @@ RSpec.describe User, type: :model do
       expect(record).to_not eq(opinion)
     end
 
-    it 'should delete all its votes' do
+    it 'all its votes are destroyed too' do
       user1 = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
       user2 = User.create(username: 'Jane_Watson', fullname: 'Jane Watson')
       opinion1 = Opinion.create(text: 'You should try this chicken soup', author_id: user2.id)
       opinion2 = Opinion.create(text: 'I highly recommend you try this receipe at home', author_id: user2.id)
-      vote1 = Vote.create(opinion_id: opinion1.id, user_id: user1.id)
-      vote2 = Vote.create(opinion_id: opinion2.id, user_id: user1.id)
+      Vote.create(opinion_id: opinion1.id, user_id: user1.id)
+      Vote.create(opinion_id: opinion2.id, user_id: user1.id)
+      user1_id = user1.id
       user1.destroy!
-      record = Vote.find_by_user_id(user1.id)
+      record = Vote.find_by_user_id(user1_id)
       expect(record).to be_nil
       expect(opinion2.votes).to be_empty
     end
