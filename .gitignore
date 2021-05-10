@@ -37,3 +37,5 @@ yarn-debug.log*
 receipe-buddies.code-workspace
 .DS_Store
 spec/.DS_Store
+cloudinary.yml
+.env
