@@ -12,7 +12,7 @@ In this platform, users can signup and start sharing opinions on their favorite 
 
 **Deployed on: HEROKU**
 
-[Recipe Buddies app]() ⬅️⬅️ Click Here
+[Recipe Buddies app](https://gentle-cliffs-69056.herokuapp.com) ⬅️⬅️ Click Here
 
 ### Features
 
