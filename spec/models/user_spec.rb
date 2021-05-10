@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
       @user = User.create(username: 'Peter Parker', fullname: 'Peter Parker')
     end
 
-    it 'cannot create a user' do
+    it 'cannot create a user if the name has spaces' do
       expect(@user).not_to be_valid
     end
 
@@ -72,6 +72,52 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context 'when user who has followers and followings is deleted' do
+    it 'all its followings are destroyed too' do
+      user1 = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
+      user2 = User.create(username: 'Jane_Watson', fullname: 'Jane Watson')
+      user1.followings.create!(followed_id: user2.id)
+      user1.destroy!
+      record = Following.find_by(follower_id: user1.id, followed_id: user2.id)
+      expect(record).to be_nil
+    end
+
+    it 'all its followers are destroyed too' do
+      user1 = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
+      user2 = User.create(username: 'Jane_Watson', fullname: 'Jane Watson')
+      following = user2.followings.create(followed_id: user1.id)
+      user1.destroy!
+      record = Following.find_by(follower_id: user2.id, followed_id: user1.id)
+      expect(record).to be_nil
+      expect(record).to_not eq(following)
+    end
+  end
+
+  context 'when user who has opinions and votes is deleted' do
+    it 'all its opinions are destroyed too' do
+      user = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
+      opinion = Opinion.create(text: 'I highly recommend you try this receipe at home', author_id: user.id)
+      user.destroy!
+      record = Opinion.find_by_author_id(user.id)
+      expect(record).to be_nil
+      expect(record).to_not eq(opinion)
+    end
+
+    it 'all its votes are destroyed too' do
+      user1 = User.create(username: 'Peter_Parker', fullname: 'Peter Parker')
+      user2 = User.create(username: 'Jane_Watson', fullname: 'Jane Watson')
+      opinion1 = Opinion.create(text: 'You should try this chicken soup', author_id: user2.id)
+      opinion2 = Opinion.create(text: 'I highly recommend you try this receipe at home', author_id: user2.id)
+      Vote.create(opinion_id: opinion1.id, user_id: user1.id)
+      Vote.create(opinion_id: opinion2.id, user_id: user1.id)
+      user1_id = user1.id
+      user1.destroy!
+      record = Vote.find_by_user_id(user1_id)
+      expect(record).to be_nil
+      expect(opinion2.votes).to be_empty
+    end
+  end
+
   # Validation Tests
   it 'is not valid without valid attributes' do
     expect(User.new).to_not be_valid
@@ -84,8 +130,7 @@ RSpec.describe User, type: :model do
       it { should allow_value('Peter_Parker').for(:username) }
       it { should allow_value('Peter-Parker').for(:username) }
       it { should validate_length_of(:username) }
-      it { should validate_presence_of(:fullname) }
-      it { should validate_length_of(:fullname) }
+      it { should validate_presence_of(:username) }
     end
 
     describe '#fullname' do

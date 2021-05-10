@@ -35,3 +35,5 @@
 yarn-debug.log*
 .yarn-integrity
 receipe-buddies.code-workspace
+.DS_Store
+spec/.DS_Store

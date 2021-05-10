@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  rescue StandardError
+    redirect_to new_user_path, notice: 'This username already exists. Please Choose another one.'
   end
 
   # GET /users/1/edit
@@ -44,6 +46,8 @@ class UsersController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  rescue StandardError
+    redirect_to edit_user_path, notice: 'This username is already taken. Please Choose another one.'
   end
 
   # DELETE /users/1

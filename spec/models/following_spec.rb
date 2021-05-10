@@ -23,6 +23,12 @@ RSpec.describe Following, type: :model do
       follower_id = user1.id
       expect(Following.find_by_follower_id(follower_id)).to eq(@following)
     end
+
+    it 'doesn\'t allow a user to follow same user twice' do
+      @following = user1.followings.build(followed_id: user2.id)
+      error = ActiveRecord::RecordNotUnique
+      expect { @following.save! }.to raise_error(error)
+    end
   end
 
   context 'with incorrect params' do
