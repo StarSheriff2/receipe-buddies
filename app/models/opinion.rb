@@ -4,7 +4,7 @@ class Opinion < ApplicationRecord
 
   belongs_to :author, class_name: 'User'
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
