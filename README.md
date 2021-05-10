@@ -1,6 +1,4 @@
-# Recipe Buddies
-### *- a cooking enthusiasts social platform based on [Gregoire Vella's Twitter Redesign](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details)*
-<br>
+# Recipe Buddies *- a cooking enthusiasts social media platform*
 
 >This is a Rails social media platform for cooking enthusiasts where people can sign up and share their favorite recipes with others. Users can follow each other, write new opinions, or vote on someone else's opinion.
 
