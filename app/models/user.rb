@@ -42,4 +42,8 @@ class User < ApplicationRecord
   def vote_record(opinion)
     Vote.find_by(user_id: self, opinion_id: opinion)
   end
+
+  def attach_avatar
+    self.photo = avatar.key if avatar.attached?
+  end
 end

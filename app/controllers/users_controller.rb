@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    @user.photo = @user.avatar.key
+    @user.attach_avatar
 
     if @user.save
       log_in @user
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    attach_avatar
+    @user.attach_avatar
 
     if @user.save
       redirect_to @user, notice: 'You have successfully updated your profile.'
@@ -67,9 +67,5 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:username, :fullname, :photo, :cover_image, :avatar)
-  end
-
-  def attach_avatar
-    @user.photo = @user.avatar.key if @user.avatar.attached?
   end
 end
