@@ -17,7 +17,7 @@
   <div class="opinions-dashboard-container p-4">
     <% if @opinions.any? %>
       <main class="opinions-list-wrapper p-4">
-        <p class="pr-4 pb-4">ALL RECIPES SHARED BY <%= current_user.following?(@user)? 'THIS BUDDY': current_user?(@user) ? 'YOU': 'THIS USER' %></p>
+        <p class="pr-4 pb-4">ALL RECIPES SHARED BY <%= author_relationship_to_user(@user) %></p>
         <hr>
         <% @opinions.each do |opinion| %>
           <div class="opinion-card pt-4 overflow-hidden">

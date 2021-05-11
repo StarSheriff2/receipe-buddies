@@ -43,4 +43,34 @@ module UsersHelper
       end
     end
   end
+
+  def author_relationship_to_user(user)
+    if current_user.following?(user)
+      'THIS BUDDY'
+    else
+      current_user?(user) ? 'YOU' : 'THIS USER'
+    end
+  end
+
+  def userpage_opinions_link(user)
+    link_to content_tag(:i, '', class: %w[fas fa-list-ul]) unless current_user == user
+  end
+
+  def follow_button_small(user)
+    return if current_user.following?(user)
+
+    link_to followings_path(following: { follower_id: current_user, followed_id: user }), method: 'POST' do
+      content_tag(:i, '', class: %w[fas fa-plus-circle])
+    end
+  end
+
+  def follow_suggestions
+    current_user.new_suggestions.ordered_by_most_recent
+  end
+
+  def homepage_opinions_profile_picture_link(opinion)
+    link_to(profile_picture_square(opinion.author, 50, alt: 'author thumbnail picture',
+                                                       class_name: 'opinion-author-thumb-pic mr-3 float-left'),
+            user_path(opinion.author))
+  end
 end

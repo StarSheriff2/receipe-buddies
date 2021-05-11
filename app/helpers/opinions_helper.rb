@@ -27,6 +27,9 @@ module OpinionsHelper
   end
 
   def new_recipe_notification
-    pluralize(latest_opinions_count, 'NEW RECIPE').upcase
+    return if latest_opinions_count.zero?
+
+    content_tag(:p, "#{pluralize(latest_opinions_count, 'NEW RECIPE').upcase} SHARED",
+                class: 'new-opinions-count pr-4 pb-4')
   end
 end

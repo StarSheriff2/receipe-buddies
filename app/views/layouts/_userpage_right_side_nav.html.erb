@@ -2,8 +2,8 @@
   <div class="profile-info-actions p-4 d-flex flex-column align-items-center">
     <div class="profile-info-picture-div d-flex p-4 align-items-center">
       <%= follow_button(user) %>
-      <%= profile_picture_circle(user, 80, alt: "profile info picture", class_name:"profile-info-picture mx-2")%>
-      <%= link_to content_tag(:i, '', class: ["fas", "fa-list-ul"]) unless current_user == user %>
+      <%= render 'layouts/userpage_r_side_main_profile_picture', user: user %>
+      <%= userpage_opinions_link(user) %>
     </div>
     <h2 class="profile-info-fullname text-center mb-1"><%= user.fullname.upcase %></h2>
     <p class="profile-info-username-handle"><%= "@#{user.username}" %></p>
@@ -39,11 +39,7 @@
               <p class="follower-username"><%= "@#{user.username}" %></p>
             </div>
           </div>
-          <% if !current_user.following?(user) %>
-            <%= link_to followings_path(following: { follower_id: current_user, followed_id: user }), method: 'POST' do %>
-              <i class="fas fa-plus-circle"></i>
-            <% end %>
-          <% end %>
+          <%= follow_button_small(user) %>
         </li>
       <% end %>
     </ul>
