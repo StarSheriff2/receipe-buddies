@@ -19,10 +19,14 @@ module OpinionsHelper
   end
 
   def timeline_opinions
-    @timeline_opinions = current_user.opinions_from_followed_users.ordered_by_most_recent.includes(:author)
+    @timeline_opinions = current_user.own_and_others_opinions.ordered_by_most_recent.includes(:author)
   end
 
   def latest_opinions_count
-    @timeline_opinions.created_after_last_logout(last_session_logout_date).count
+    @timeline_opinions.where.not(author_id: current_user).created_after_last_logout(last_session_logout_date).count
+  end
+
+  def new_recipe_notification
+    pluralize(latest_opinions_count, 'NEW RECIPE').upcase
   end
 end

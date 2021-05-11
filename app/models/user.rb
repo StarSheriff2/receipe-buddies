@@ -23,8 +23,8 @@ class User < ApplicationRecord
     User.where.not(id: [*followed_users, self])
   end
 
-  def opinions_from_followed_users
-    Opinion.where(author_id: [*followed_users])
+  def own_and_others_opinions
+    Opinion.where(author_id: [*followed_users, self])
   end
 
   def following?(user)

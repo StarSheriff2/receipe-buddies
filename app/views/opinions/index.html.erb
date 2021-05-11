@@ -20,7 +20,7 @@
     <% if timeline_opinions.any? %>
       <main class="opinions-list-wrapper p-4">
         <% if !latest_opinions_count.zero? %>
-          <p class="new-opinions-count pr-4 pb-4"><%= latest_opinions_count %> NEW RECIPES SHARED</p>
+          <p class="new-opinions-count pr-4 pb-4"><%= new_recipe_notification %> SHARED</p>
         <% end %>
         <hr>
         <% timeline_opinions.each do |opinion| %>
