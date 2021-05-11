@@ -69,7 +69,7 @@ In this platform, users can signup and start sharing opinions on their favorite 
 #### Clone / Download Repo
 1. Open your terminal or command prompt.
 2. If you do not have git installed in your system, skip this step and go to step 3; otherwise, go to the directory where you want to copy the project files and clone it by copying this text into your command prompt/terminal: `git clone https://github.com/StarSheriff2/forms-app.git`.
-<br>Now go to "Install" section
+<br>Now go to ***"Install Dependencies"*** section
 3. Download the program files by clicking on the green button that says “**Code**“, on the upper right side of the project frame.
 4. You will see a dropdown menu. Click on “**Download ZIP**“.
 5. Go to the directory where you downloaded the **ZIP file** and open it. Extract its contents to any directory you want in your system.
@@ -84,7 +84,7 @@ In this platform, users can signup and start sharing opinions on their favorite 
 
 1. Edit the `"database.yml"` file in your `"config"` folder:
     - Change the `username` and `password` under ***`default: &default`*** to your PostgreSQL local credentials or just delete lines 23 and 24 altogether
-1. Type <code>bin/rails db:create</code> to create your local databases.
+1. Now, in your terminal, type <code>bin/rails db:create</code> to create your local databases.
 2. If successful, type <code>bin/rails db:migrate</code> to migrate the database.
 
 You are all set now!
@@ -125,7 +125,7 @@ Design:
 
 Image credits:
 - Empty profile picture by <a href="https://pixabay.com/users/wanderercreative-855399/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=973460">Stephanie Edwards</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=973460">Pixabay</a>
-- README pictures downloaded from Photo by Rachel Claire from [Pexels](https://www.pexels.com)
+- README pictures downloaded from [Pexels](https://www.pexels.com)
 
 Lato font:
   - Lato is a trademark of tyPoland Lukasz Dziedzic
