@@ -62,6 +62,7 @@ In this platform, users can signup and start sharing opinions on their favorite 
 - Ruby 3.0.1p64
 - Rails 6.1.3.1
 - PostgreSQL 13.2
+- Cloudinary account
 - Linux/Mac Operating systems (preferred)
 
 ### Setup and Installation

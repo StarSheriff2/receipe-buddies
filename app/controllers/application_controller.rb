@@ -6,13 +6,4 @@ class ApplicationController < ActionController::Base
     flash.notice = 'No page found at that address'
     redirect_to root_path
   end
-
-  private
-
-  def logged_in_user
-    return if logged_in?
-
-    flash[:danger] = 'Please log in.'
-    redirect_to login_url
-  end
 end
