@@ -1,7 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: :destroy
 
-  # POST /votes
   def create
     @vote = Vote.new(vote_params)
     @path = params[:path]
@@ -13,7 +12,6 @@ class VotesController < ApplicationController
     end
   end
 
-  # DELETE /votes/1
   def destroy
     @vote.destroy
     @path = params[:path]
@@ -22,12 +20,10 @@ class VotesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_vote
     @vote = Vote.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def vote_params
     params.require(:vote).permit(:opinion_id, :user_id)
   end

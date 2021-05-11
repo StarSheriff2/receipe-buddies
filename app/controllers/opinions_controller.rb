@@ -1,10 +1,8 @@
 class OpinionsController < ApplicationController
-  # GET /opinions
   def index
     @opinion = Opinion.new
   end
 
-  # POST /opinions
   def create
     @opinion = Opinion.new(opinion_params)
 
@@ -17,7 +15,6 @@ class OpinionsController < ApplicationController
 
   private
 
-  # Only allow a list of trusted parameters through.
   def opinion_params
     params.require(:opinion).permit(:author_id, :text)
   end
