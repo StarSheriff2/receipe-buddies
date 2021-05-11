@@ -1,12 +1,12 @@
 # Recipe Buddies *- a cooking enthusiasts social media platform*
 
->This is a Rails social media platform for cooking enthusiasts where people can sign up and share their favorite recipes with others. Users can follow each other, write new opinions, or vote on someone else's opinion.
+>This is a Rails social media platform for cooking enthusiasts where people can sign up and share their favorite recipes with others. Users can follow each other, write new opinions, or vote for any recipe recommendation they like.
 
 ## About
 
 Recipe Buddies is a social media platform built from scratch using Ruby on Rails, Bootstrap, CSS, SCSS, PostgreSQL, and Cloudinary for image cloud storage.
 
-In this platform, users can signup and start sharing opinions on their favorite cooking recipes. Users can follow or unfollow other users (just like in Twitter) and vote or unvote for other recipe opinions from other users (including their own).
+In this platform, users can signup and start sharing opinions on their favorite cooking recipes. Users can follow or unfollow other users (just like in Twitter) and vote or unvote for recipe opinions from other users (including their own).
 
 ### Live Demo
 
@@ -70,17 +70,27 @@ In this platform, users can signup and start sharing opinions on their favorite 
 1. Open your terminal or command prompt.
 2. If you do not have git installed in your system, skip this step and go to step 3; otherwise, go to the directory where you want to copy the project files and clone it by copying this text into your command prompt/terminal: `git clone https://github.com/StarSheriff2/forms-app.git`.
 <br>Now go to ***"Install Dependencies"*** section
-3. Download the program files by clicking on the green button that says “**Code**“, on the upper right side of the project frame.
+3. Download the program files by clicking on the green button that says “**Code**“ on the upper right side of the project frame.
 4. You will see a dropdown menu. Click on “**Download ZIP**“.
 5. Go to the directory where you downloaded the **ZIP file** and open it. Extract its contents to any directory you want in your system.
 
 #### Install Dependencies
 
 1. If you are not in your system terminal/command prompt already, please open it and go to the directory where you cloned the remote repository or extracted the project files.
-2. While in the project root directory, type `bundle install`. This will install all the necessary gems in your system.
+2. While in the project root directory, type `bundle install`. This command will install all the necessary gems in your system.
 3. Then you can type <code>yarn install --check-files</code>.
 
-#### Setup Database
+#### Cloudinary Setup
+> You will need a Cloudinary account to be able to deploy this app locally. If you already have one, copy your YML file into the config folder; otherwise, create a new account by going to Cloudinary and signing up for a free account: [https://cloudinary.com/](https://cloudinary.com/).
+
+Once you have your new Cloudinary account set up, follow these steps:
+1. Login with your new account
+2. Go to your Cloudinary dashboard
+3. Look for the YML file and click on it to download it
+![cloudinary_yml_file](./other/README_images/cloudinary_setup_img.png)
+4. Copy this file into your config folder
+
+#### Database Setup
 
 1. Edit the `"database.yml"` file in your `"config"` folder:
     - Change the `username` and `password` under ***`default: &default`*** to your PostgreSQL local credentials or just delete lines 23 and 24 altogether
@@ -91,7 +101,7 @@ You are all set now!
 
 ### Testing
 
-This project uses RSpec and Capybara for all testing. These gems are already bundled in the Gemfile.
+This project uses RSpec and Capybara for all testing. These gems are already in the Gemfile.
 
 **Note:** You will need Chrome to make the integrations tests work, or you can optionally configure Capybara with your preferred browser.
 
@@ -115,7 +125,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give an ⭐️ if you like this project!
 
 ## Acknowledgments
 
