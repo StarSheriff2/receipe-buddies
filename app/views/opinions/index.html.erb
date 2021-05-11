@@ -17,13 +17,13 @@
       <%= render 'form', opinion: @opinion %>
     </div>
 
-    <% if @timeline_opinions.any? %>
+    <% if timeline_opinions.any? %>
       <main class="opinions-list-wrapper p-4">
         <% if !latest_opinions_count.zero? %>
           <p class="new-opinions-count pr-4 pb-4"><%= latest_opinions_count %> NEW RECIPES SHARED</p>
         <% end %>
         <hr>
-        <% @timeline_opinions.each do |opinion| %>
+        <% timeline_opinions.each do |opinion| %>
           <div class="opinion-card pt-4 overflow-hidden">
             <%= link_to profile_picture_square(opinion.author, 50, alt:"author thumbnail picture", class_name:"opinion-author-thumb-pic mr-3 float-left"), user_path(opinion.author) %>
             <div class="opinion-info d-flex justify-content-between flex-grow-1">

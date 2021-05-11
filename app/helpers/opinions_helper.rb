@@ -18,6 +18,10 @@ module OpinionsHelper
     end
   end
 
+  def timeline_opinions
+    @timeline_opinions = current_user.opinions_from_followed_users.ordered_by_most_recent.includes(:author)
+  end
+
   def latest_opinions_count
     @timeline_opinions.created_after_last_logout(last_session_logout_date).count
   end
