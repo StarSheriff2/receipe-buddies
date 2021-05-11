@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: starsheriff
+  api_key: '977156816431331'
+  api_secret: AFkPsMkr1fBULq20EWVCbrxq4-M
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: starsheriff
+  api_key: '977156816431331'
+  api_secret: AFkPsMkr1fBULq20EWVCbrxq4-M
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: starsheriff
+  api_key: '977156816431331'
+  api_secret: AFkPsMkr1fBULq20EWVCbrxq4-M
+  enhance_image_tag: true
+  static_file_support: false
