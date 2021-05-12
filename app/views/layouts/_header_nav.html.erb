@@ -1,0 +1,21 @@
+<header class="header position-fixed d-flex align-items-center">
+  <h2 class="hidden">Header</h2>
+  <nav class="header-navbar py-3 w-100 d-flex align-items-center justify-content-between">
+    <%= link_to image_tag('logo.png', alt:'logo', width: 100, class:'color-correction'),
+    root_path, class: "d-inline px-4" %>
+    <ul class="header-navbar-links d-flex px-4 justify-content-between align-items-center my-2">
+      <li><%= link_to root_path do %>
+        <i class="fas fa-pen"></i>
+      <% end %></li>
+      <li><%= link_to root_path do %>
+        <i class="fas fa-search"></i>
+      <% end %></li>
+      <li><%= link_to edit_user_path(current_user) do %>
+        <i class="fas fa-cog"></i>
+      <% end %></li>
+      <li><%= link_to logout_path, method: 'DELETE' do %>
+        <i class="fas fa-sign-out-alt"></i>
+      <% end %></li>
+    </ul>
+  </nav>
+</header>

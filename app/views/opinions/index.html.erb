@@ -1,0 +1,40 @@
+<%= render 'layouts/left_side_menu' %>
+<%= render 'layouts/header_nav' %>
+<%= render 'layouts/right_side_nav' do %>
+    <%= render('layouts/homepage_right_side_nav', users: follow_suggestions) %>
+<% end %>
+
+<div class="opinions-index-container position-absolute">
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+
+  <%= render 'top_nav' %>
+
+  <div class="opinions-dashboard-container p-4">
+    <div class="create-new-opinion p-4 mb-4">
+      <h2 class='pb-2'>SHARE A RECIPE</h2>
+      <%= render 'form', opinion: @opinion %>
+    </div>
+
+    <% if timeline_opinions.any? %>
+      <main class="opinions-list-wrapper p-4">
+        <%= new_recipe_notification %>
+        <hr>
+        <% timeline_opinions.each do |opinion| %>
+          <div class="opinion-card pt-4 overflow-hidden">
+            <%= homepage_opinions_profile_picture_link(opinion) %>
+            <div class="opinion-info d-flex justify-content-between flex-grow-1">
+              <h3 class="opinion-author-name"><%= link_to opinion.author.fullname, user_path(opinion.author) %></h3>
+              <span class="opinion-time-published"><%= calculate_time_ago(opinion.created_at) %></span>
+            </div>
+            <p class="opinions-text"><%= opinion.text %></p>
+            <%= render 'layouts/vote_module', opinion: opinion, path: request.path %>
+          </div>
+        <% end %>
+      </main>
+    <% end %>
+  </div>
+</div>
+
+

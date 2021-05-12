@@ -1,0 +1,176 @@
+/*
+  =======================
+  Global stylings
+  =======================
+*/
+
+html {
+  font-size: 1rem;
+}
+
+// Background Colors //
+
+$primary-color: #50a4e2;
+$secondary-color: #213246;
+$dark-secondary-color: #1b2a3d;
+$dark-secondary-color-border: #16272e;
+$bg-gray: #f5f6f8;
+$bg-white: #fff;
+
+/*
+  =======================
+  Fonts
+  =======================
+*/
+
+// Font Face //
+
+@font-face {
+  font-family: 'Lato';
+  src:
+    url('fonts/Lato-Regular.eot') format("truetype"),
+    url('fonts/Lato-Regular.ttf') format("truetype"),
+    url('fonts/Lato-Regular.woff') format("truetype"),
+    url('fonts/Lato-Regular.woff2') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Font Family Variables //
+
+$primary-font: 'Lato',
+  sans-serif;
+
+// Font Colors //
+
+$primary-color-icons: #396f9b;
+$secondary-color-font: #667b90;
+$dark-gray: #b8b9bb;
+$header-gray: #404c5c;
+$light-gray: #c6c6c8;
+
+// Font Styles //
+
+@mixin font-styles($weight: 400, $font-size: 1em, $line-height: 1.3em, $font: $primary-font, $letter-spacing: normal) {
+  font: $weight #{$font-size}/#{$line-height} $font;
+  letter-spacing: $letter-spacing;
+}
+
+/*
+  =======================
+  General layout
+  =======================
+*/
+
+.hidden {
+  position: absolute;
+  left: -9999999px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
+}
+
+.primary-color-fonts {
+  color: $primary-color;
+}
+
+/*
+  =======================
+  Typography
+  =======================
+*/
+
+body {
+  @include font-styles($font-size: 0.9rem, $line-height: 1.3rem);
+
+  color: $dark-gray;
+  background-color: $bg-gray;
+}
+
+h1 {
+  @include font-styles($font-size: 1.3rem, $line-height: 0.9rem);
+
+  margin: 0;
+}
+
+h2 {
+  @include font-styles($font-size: 0.9rem, $line-height: 0.9rem);
+
+  margin: 0;
+}
+
+h3 {
+  @include font-styles($font-size: 0.8rem, $letter-spacing: -0.3px);
+
+  margin: 0;
+}
+
+a {
+  @include font-styles(inherit);
+
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+p,
+hr {
+  margin: 0;
+}
+
+/*
+  =======================
+  Router Messages
+  =======================
+*/
+
+#error_explanation {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: $bg-white;
+  background-color: rgb(170, 126, 126);
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 1.4rem;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  list-style: round($number: 2);
+}
+
+.field_with_errors {
+  width: 100%;
+  padding: 2px;
+  border: 2px solid red;
+}
+
+#notice {
+  color: $light-gray;
+  background-color: $header-gray;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1rem;
+}

@@ -3,6 +3,7 @@
   <head>
     <title>ReceipeBuddies</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,11 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="page-container position-relative">
+      <%= yield %>
+    </div>
+
+    <script src="https://kit.fontawesome.com/2bdc450678.js" crossorigin="anonymous"></script>
   </body>
 </html>
