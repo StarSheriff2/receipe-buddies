@@ -54,7 +54,10 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    current_user?(@user)
+    return if current_user?(User.find(params[:id]))
+
+    redirect_to user_path,
+                notice: 'You don\'t have permission rights to edit this user.'
   end
 
   def user_params
