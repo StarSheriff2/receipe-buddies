@@ -69,7 +69,7 @@ In this platform, users can signup and start sharing opinions on their favorite 
 
 #### Clone / Download Repo
 1. Open your terminal or command prompt.
-2. If you do not have git installed in your system, skip this step and go to step 3; otherwise, go to the directory where you want to copy the project files and clone it by copying this text into your command prompt/terminal: `git clone https://github.com/StarSheriff2/forms-app.git`.
+2. If you do not have git installed in your system, skip this step and go to step 3; otherwise, go to the directory where you want to copy the project files and clone it by copying this text into your command prompt/terminal: `git clone git@github.com:StarSheriff2/receipe-buddies.git`.
 <br>Now go to ***"Install Dependencies"*** section
 3. Download the program files by clicking on the green button that says “**Code**“ on the upper right side of the project frame.
 4. You will see a dropdown menu. Click on “**Download ZIP**“.
