@@ -1,14 +1,16 @@
-<div class="text-center container w-25 p-3 my-3 border">
-    <h1>Edit you Profile Here</h1>
-</div>
+<div class="user-edit-page-container">
+    <div class="text-center p-3 mb-3 border">
+        <h1>Edit you Profile Here</h1>
+    </div>
 
-<%= render 'form', user: @user %>
+    <%= render 'form', user: @user %>
 
-<div class="d-flex flex-column align-items-center">
-    <h2 class='p-2 text-center'>Want to delete your account?</h2>
-    <%= link_to 'Cancel my Account', user_path(@user), method: 'DELETE'%>
-</div>
+    <div class="d-flex flex-column align-items-center">
+        <h2 class='p-2 text-center'>Want to delete your account?</h2>
+        <%= link_to 'Cancel my Account', user_path(@user), method: 'DELETE'%>
+    </div>
 
-<div class="text-center w-25 container p-3 my-3">
-    <%= link_to 'Back', root_path %>
+    <div class="text-center p-3 my-3">
+        <%= link_to 'Back', root_path %>
+    </div>
 </div>

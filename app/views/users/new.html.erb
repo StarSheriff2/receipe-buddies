@@ -1,9 +1,11 @@
-<div class="text-center container w-25 p-3 my-3 border">
-  <h1>Sign Up</h1>
-</div>
+<div class="signup-page-container">
+  <div class="text-center p-3 mb-3 border">
+    <h1>Sign Up</h1>
+  </div>
 
-<%= render 'form', user: @user %>
+  <%= render 'form', user: @user %>
 
-<div class="text-center w-25 container p-3 my-3">
-  <p>Already a user? Back to <%= link_to 'Sign in', login_path %></p>
+  <div class="text-center p-3 my-3">
+    <p>Already a user? Back to <%= link_to 'Sign in', login_path %></p>
+  </div>
 </div>

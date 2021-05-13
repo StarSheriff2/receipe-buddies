@@ -109,6 +109,7 @@
 */
 
 .right-side-nav {
+  position: fixed;
   top: 80px;
   right: 0;
   bottom: 0;
@@ -198,4 +199,183 @@
 
 .vote-button-div span {
   font-size: 0.7rem;
+}
+
+/*
+  =======================
+  Media Query: 1200 MAX
+  =======================
+*/
+
+@media (max-width: 1200px) {
+  /* Global Settings */
+  html {
+    font-size: 0.8rem;
+  }
+
+  /* LEFT-SIDE MENU */
+  .left-side-menu {
+    width: 200px;
+  }
+
+  .left-menu-user-stats-box {
+    flex-basis: calc(200px / 2);
+  }
+
+  /* Header */
+
+  .header {
+    left: 200px;
+    right: 0;
+  }
+
+  /*  RIGHT-SIDE-NA */
+
+  .right-side-nav {
+    width: 220px;
+  }
+
+  /* USERPAGE-RIGHT-SIDE-NAV */
+
+  .user-stats-box {
+    flex-basis: calc(220px / 3);
+  }
+}
+
+/*
+  =======================
+  Media Query: 992 MAX
+  =======================
+*/
+
+@media (max-width: 992px) {
+  /* Global Settings */
+  html {
+    font-size: 0.7rem;
+  }
+
+  /* LEFT-SIDE MENU */
+  .left-side-menu {
+    width: 150px;
+  }
+
+  .left-menu-profile-pic {
+    width: 35px;
+    height: 35px;
+  }
+
+  .left-menu-user-stats-box {
+    flex-basis: calc(150px / 2);
+  }
+
+  /* Header */
+
+  .header {
+    left: 150px;
+    right: 0;
+  }
+
+  /*  RIGHT-SIDE-NA */
+
+  .right-side-nav {
+    width: 190px;
+  }
+
+  /* USERPAGE-RIGHT-SIDE-NAV */
+
+  .user-stats-box {
+    flex-basis: calc(190px / 3);
+  }
+}
+
+/*
+  =======================
+  Media Query: 768 MAX
+  =======================
+*/
+
+@media (max-width: 768px) {
+  /* Global Settings */
+  html {
+    font-size: 0.65rem;
+  }
+
+  /* PAGE CONTAINER */
+  .page-container {
+    height: 100vh;
+  }
+
+  /* LEFT-SIDE MENU */
+  .left-side-menu {
+    width: 100%;
+    height: 80px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .left-menu-profile {
+    min-width: 150px;
+  }
+
+  .left-menu-profile-pic {
+    width: 45px;
+    height: 45px;
+  }
+
+  .left-menu-stats {
+    width: 100%;
+  }
+
+  .left-menu-user-stats-box {
+    flex-basis: calc(100% / 2);
+  }
+
+  .left-menu-user-stats-box-l {
+    border-right: solid 1px $dark-secondary-color-border;
+    border-left: solid 1px $dark-secondary-color-border;
+  }
+
+  .left-menu-user-stats-box-r {
+    border-right: solid 1px $dark-secondary-color-border;
+  }
+
+  .left-menu-links {
+    background-color: $bg-gray;
+  }
+
+  .left-menu-link-home,
+  .left-menu-link-profile {
+    width: 100%;
+    min-width: 120px;
+  }
+
+  /* Header */
+
+  .header {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  /*  HOMEPAGE-RIGHT-SIDE-NAV */
+
+  .right-side-nav {
+    position: static;
+    width: 100%;
+    margin-top: 126.8px;
+  }
+
+  .who-to-follow-module-title,
+  .followed-by-module-title {
+    height: 40px;
+  }
+
+  /* USERPAGE-RIGHT-SIDE-NAV */
+
+  .user-stats-box {
+    flex-basis: calc(100% / 3);
+  }
 }

@@ -2,11 +2,11 @@
   <h3 class="who-to-follow-module-title d-flex px-4 align-items-center justify-content-start">WHO TO FOLLOW</h3>
   <hr class="m-0">
   <% if users %>
-    <ul class="recently-joined-users py-3 px-4">
+    <ul class="recently-joined-users pt-3 py-md-3 px-4 m-0">
       <% users.each do |user| %>
         <li class="new-user-card d-flex mb-3">
           <%= render 'layouts/homepage_r_side_profile_picture_link', user: user %>
-          <div class="new-user-info">
+          <div class="new-user-info d-flex flex-column justify-content-center">
             <h3 class="new-user-name"><%= link_to user.fullname, user_path(user) %></h3>
             <% if user.followers.any? %>
               <p class="new-user-followed-by">Followed by <%= link_to user.followers.first.fullname, user_path(user.followers.first) %></p>

@@ -3,17 +3,17 @@
   <nav class="header-navbar py-3 w-100 d-flex align-items-center justify-content-between">
     <%= link_to image_tag('logo.png', alt:'logo', width: 100, class:'color-correction'),
     root_path, class: "d-inline px-4" %>
-    <ul class="header-navbar-links d-flex px-4 justify-content-between align-items-center my-2">
-      <li><%= link_to root_path do %>
+    <ul class="header-navbar-links d-flex px-4 justify-content-between flex-wrap align-items-center my-2">
+      <li class="m-3"><%= link_to root_path do %>
         <i class="fas fa-pen"></i>
       <% end %></li>
-      <li><%= link_to root_path do %>
+      <li class="m-3"><%= link_to root_path do %>
         <i class="fas fa-search"></i>
       <% end %></li>
-      <li><%= link_to edit_user_path(current_user) do %>
+      <li class="m-3"><%= link_to edit_user_path(current_user) do %>
         <i class="fas fa-cog"></i>
       <% end %></li>
-      <li><%= link_to logout_path, method: 'DELETE' do %>
+      <li class="m-3"><%= link_to logout_path, method: 'DELETE' do %>
         <i class="fas fa-sign-out-alt"></i>
       <% end %></li>
     </ul>

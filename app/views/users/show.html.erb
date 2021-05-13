@@ -4,7 +4,7 @@
     <%= render('layouts/userpage_right_side_nav', user: @user, users: @user.followers.where.not(id: current_user).limit(3)) %>
 <% end %>
 
-<div class="user-page-container position-absolute">
+<div class="user-page-container">
 
   <% if notice %>
     <p id="notice"><%= notice %></p>
@@ -14,7 +14,7 @@
 
   <%= render './opinions/top_nav' %>
 
-  <div class="opinions-dashboard-container p-4">
+  <div class="opinions-dashboard-container p-md-4">
     <% if @opinions.any? %>
       <main class="opinions-list-wrapper p-4">
         <p class="pr-4 pb-4">ALL RECIPES SHARED BY <%= author_relationship_to_user(@user) %></p>

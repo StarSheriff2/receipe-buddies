@@ -1,9 +1,9 @@
 <nav class="left-side-menu m-md-0 position-fixed">
   <h2 class="hidden">Left Menu</h2>
-  <div class="left-menu-top">
-    <div class="left-menu-profile d-flex align-items-center p-4">
+  <div class="left-menu-top d-md-block d-flex justify-content-between">
+    <div class="left-menu-profile d-flex align-items-center flex-lg-row flex-md-column justify-content-md-center p-4">
       <%= profile_picture_square(current_user, 50, alt:"profile picture of logged user", class_name:"left-menu-profile-pic") %>
-      <h2 class="ml-4"><%= current_user.fullname.upcase! %></h2>
+      <h2 class="mt-md-2 mt-0 ml-4 m-md-0 ml-lg-4 text-center"><%= current_user.fullname.upcase! %></h2>
     </div>
     <div class="left-menu-stats d-flex">
       <div
@@ -12,13 +12,13 @@
         <p>Following</p>
       </div>
       <div
-        class="left-menu-user-stats-box d-flex flex-column justify-content-center align-items-center flex-shrink-0 flex-grow-0 py-4">
+        class="left-menu-user-stats-box left-menu-user-stats-box-r d-flex flex-column justify-content-center align-items-center flex-shrink-0 flex-grow-0 py-4">
         <p class="user-stats-total-left-menu"><%= current_user.followers.count %></p>
         <p>Followers</p>
       </div>
     </div>
   </div>
-  <ul class="left-menu-links">
+  <ul class="left-menu-links d-flex d-md-block justify-content-evenly">
     <%= tag.li class: "left-menu-link-home d-flex align-items-center py-4 #{active_link_home}" do %>
       <%= link_to '', opinions_path, class:'stretched-link' %>
       <i class="fas fa-home ml-4 mr-3"></i>
