@@ -1,7 +1,55 @@
 @import "bootstrap/scss/bootstrap";
 @import "global_settings";
 
+.user-page-container {
+  position: absolute;
+}
+
 .cover-picture-div {
-  height: 298.683px;
+  height: 316.567px;
   width: 100%;
+}
+
+/*
+  =======================
+  Media Query: 1200 MAX
+  =======================
+*/
+
+@media (max-width: 1200px) {
+
+  .cover-picture-div {
+    height: 287.233px;
+  }
+}
+
+/*
+  =======================
+  Media Query: 992 MAX
+  =======================
+*/
+
+@media (max-width: 992px) {
+
+  .cover-picture-div {
+    height: 270.6px;
+  }
+}
+
+/*
+  =======================
+  Media Query: 768 MAX
+  =======================
+*/
+
+@media (max-width: 768px) {
+
+  .user-page-container {
+    position: static;
+  }
+
+  .cover-picture-div {
+    height: 0;
+    left: -1000px;
+  }
 }

@@ -4,14 +4,14 @@
     <%= render('layouts/homepage_right_side_nav', users: follow_suggestions) %>
 <% end %>
 
-<div class="opinions-index-container position-absolute">
+<div class="opinions-index-container">
   <% if notice %>
     <p id="notice"><%= notice %></p>
   <% end %>
 
   <%= render 'top_nav' %>
 
-  <div class="opinions-dashboard-container p-4">
+  <div class="opinions-dashboard-container p-md-4">
     <div class="create-new-opinion p-4 mb-4">
       <h2 class='pb-2'>SHARE A RECIPE</h2>
       <%= render 'form', opinion: @opinion %>
