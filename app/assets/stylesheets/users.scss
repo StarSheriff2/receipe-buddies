@@ -1,4 +1,3 @@
-@import "bootstrap/scss/bootstrap";
 @import "global_settings";
 
 .user-page-container {
@@ -12,12 +11,24 @@
 
 /*
   =======================
+  FORMS
+  =======================
+*/
+
+.signup-page-container,
+.user-edit-page-container {
+  max-width: 400px;
+  margin: auto;
+  height: 100vh;
+}
+
+/*
+  =======================
   Media Query: 1200 MAX
   =======================
 */
 
 @media (max-width: 1200px) {
-
   .cover-picture-div {
     height: 287.233px;
   }
@@ -30,7 +41,6 @@
 */
 
 @media (max-width: 992px) {
-
   .cover-picture-div {
     height: 270.6px;
   }
@@ -43,7 +53,6 @@
 */
 
 @media (max-width: 768px) {
-
   .user-page-container {
     position: static;
   }
@@ -52,4 +61,119 @@
     height: 0;
     left: -1000px;
   }
+}
+
+/*
+  =======================
+  MISCELLANEOUS: INPUT[TYPE=FILE]
+  =======================
+*/
+
+input[type="file"],
+input[type="file"]:visited,
+input[type="file"]:hover,
+input[type="file"]:focus,
+input[type="file"]:active {
+  margin: 0;
+  padding: 0 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.2rem;
+  outline: none;
+  border: 2px solid #bbb;
+  cursor: pointer;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  height: 100%;
+}
+
+input[type="file"]:hover {
+  background: #f9f9ff;
+  border: 2px solid #999;
+}
+
+input[type="file"]:visited,
+input[type="file"]:focus,
+input[type="file"]:active {
+  background: #fff;
+  border: 2px solid #999;
+}
+
+input[type="file"]:disabled,
+input[type="file"]:read-only {
+  margin: 0;
+  padding: 0 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.2rem;
+  outline: none;
+  border: 2px solid #bbb;
+  cursor: pointer;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type="file"]:disabled:hover,
+input[type="file"]:read-only:hover {
+  background: #f9f9ff;
+  border: 2px solid #999;
+}
+
+input[type="file"]:disabled:visited,
+input[type="file"]:disabled:focus,
+input[type="file"]:disabled:active,
+input[type="file"]:read-only:visited,
+input[type="file"]:read-only:focus,
+input[type="file"]:read-only:active {
+  background: #fff;
+  border: 2px solid #999;
+}
+
+::-ms-browse {
+  /* IE */
+  display: inline-block;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  text-align: center;
+  outline: none;
+  border: none;
+  background: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* FIREFOX UPLOAD BUTTON STYLE */
+::file-selector-button {
+  /* firefox */
+  display: inline-block;
+  margin: 0 1rem 0 0;
+  padding: 0.18em 0.5em;
+  padding: 0.18rem 0.5rem;
+  -webkit-appearance: button;
+  text-align: center;
+  border-radius: 0.1rem 0 0 0.1rem;
+  outline: none;
+  border: none;
+  border-right: 2px solid #bbb;
+  background: #eee;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* CHROME AND EDGE UPLOAD BUTTON STYLE */
+::-webkit-file-upload-button {
+  /* chrome and edge */
+  display: inline-block;
+  margin: 0 1rem 0 0;
+  padding: 0.19em 0.5em;
+  padding: 0.19rem 0.5rem;
+  -webkit-appearance: button;
+  text-align: center;
+  border-radius: 0.1rem 0 0 0.1rem;
+  outline: none;
+  border: none;
+  border-right: 2px solid #bbb;
+  background: #eee;
+  white-space: nowrap;
+  cursor: pointer;
 }
