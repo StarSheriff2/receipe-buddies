@@ -21,12 +21,12 @@
   <ul class="left-menu-links d-flex d-md-block justify-content-evenly">
     <%= tag.li class: "left-menu-link-home d-flex align-items-center py-4 #{active_link_home}" do %>
       <%= link_to '', opinions_path, class:'stretched-link' %>
-      <i class="fas fa-home ml-4 mr-3"></i>
+      <i class="fas fa-home ml-md-4 mr-3"></i>
       <h2>HOME</h2>
     <% end %>
     <%= tag.li class: "left-menu-link-profile d-flex align-items-center py-4 #{active_link_current_user}" do %>
       <%= link_to '', user_path(current_user), class:'stretched-link' %>
-      <i class="fas fa-user ml-4 mr-3"></i>
+      <i class="fas fa-user ml-md-4 mr-3"></i>
       <h2>PROFILE</h2>
     <% end %>
   </ul>
