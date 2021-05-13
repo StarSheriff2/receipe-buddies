@@ -297,7 +297,7 @@
 @media (max-width: 768px) {
   /* Global Settings */
   html {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
   }
 
   /* PAGE CONTAINER */
@@ -313,6 +313,7 @@
     right: 0;
     left: 0;
     z-index: 1;
+    font-size: 0.65rem;
   }
 
   .left-menu-profile {
@@ -330,15 +331,7 @@
 
   .left-menu-user-stats-box {
     flex-basis: calc(100% / 2);
-  }
-
-  .left-menu-user-stats-box-l {
-    border-right: solid 1px $dark-secondary-color-border;
-    border-left: solid 1px $dark-secondary-color-border;
-  }
-
-  .left-menu-user-stats-box-r {
-    border-right: solid 1px $dark-secondary-color-border;
+    border: none;
   }
 
   .left-menu-links {
@@ -349,6 +342,7 @@
   .left-menu-link-profile {
     width: 100%;
     min-width: 120px;
+    justify-content: center;
   }
 
   /* Header */
@@ -360,12 +354,16 @@
     left: 0;
   }
 
+  .header-navbar-links .fas {
+    font-size: 1.5rem;
+  }
+
   /*  HOMEPAGE-RIGHT-SIDE-NAV */
 
   .right-side-nav {
     position: static;
     width: 100%;
-    margin-top: 126.8px;
+    margin-top: 137.6px;
   }
 
   .who-to-follow-module-title,
@@ -377,5 +375,9 @@
 
   .user-stats-box {
     flex-basis: calc(100% / 3);
+  }
+
+  .vote-module {
+    margin-left: calc(35px + 1rem);
   }
 }
