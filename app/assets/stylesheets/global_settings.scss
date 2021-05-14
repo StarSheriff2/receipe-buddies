@@ -28,10 +28,10 @@ $bg-white: #fff;
 @font-face {
   font-family: 'Lato';
   src:
-    font-url('fonts/Lato-Regular.eot') format("truetype"),
-    font-url('fonts/Lato-Regular.ttf') format("truetype"),
-    font-url('fonts/Lato-Regular.woff') format("truetype"),
-    font-url('fonts/Lato-Regular.woff2') format("truetype");
+    url('Lato-Regular.eot') format("truetype"),
+    url('Lato-Regular.ttf') format("truetype"),
+    url('Lato-Regular.woff') format("truetype"),
+    url('Lato-Regular.woff2') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
