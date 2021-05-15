@@ -19,7 +19,7 @@ module UsersHelper
                                     crop: :thumb, gravity: :face, fetch_format: :auto)
     else
       image_tag('blank-profile-picture.png', width: dimensions, height: dimensions, class: class_name,
-                                         alt: alt)
+                                             alt: alt)
     end
   end
 
