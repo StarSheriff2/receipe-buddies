@@ -8,7 +8,7 @@ module UsersHelper
       cl_image_tag(user.avatar.key, width: dimensions, height: dimensions, alt: alt, class: class_name,
                                     crop: :fill, gravity: :face, radius: 'max', fetch_format: :auto)
     else
-      image_tag('blank-profile-picture', class: class_name, width: dimensions, height: dimensions, alt: alt)
+      image_tag('blank-profile-picture.png', class: class_name, width: dimensions, height: dimensions, alt: alt)
     end
   end
 
@@ -18,7 +18,7 @@ module UsersHelper
                                     alt: alt, class: class_name,
                                     crop: :thumb, gravity: :face, fetch_format: :auto)
     else
-      image_tag('blank-profile-picture', width: dimensions, height: dimensions, class: class_name,
+      image_tag('blank-profile-picture.png', width: dimensions, height: dimensions, class: class_name,
                                          alt: alt)
     end
   end
