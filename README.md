@@ -55,6 +55,9 @@ In this platform, users can signup and start sharing opinions on their favorite 
 #### Login
 ![homepage](./other/README_images/login_page.png)
 
+#### Mobile - Homepage
+![mobile_homepage](./other/README_images/homepage_mobile_screenshot.png)
+
 ## Deployment
 
 ### Requirements
